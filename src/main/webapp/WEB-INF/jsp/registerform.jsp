@@ -14,7 +14,7 @@
 		<table>
 			<tr>
 				<td><label>Name</label></td>
-				<td><input type ="text" name="fname"></td>
+				<td><input type ="text" name="fname" required></td>
 			</tr>
 			<tr>
 				<td><label>Surname</label></td>
@@ -33,8 +33,8 @@
 				
 				<td>
 					<select id="roles" name="user_type">
-					  	<option value="user">User</option>
-					  	<option value="mechanic">mechanic</option>
+					  	<option value="user">Client</option>
+					  	<option value="mechanic">Mechanic</option>
 					</select>
 				</td>
 				
@@ -54,6 +54,10 @@
 			<tr>
 				<td></td>
 				<td><input type ="submit" name="register" value="submit"></td>
+			</tr>
+			<tr>
+				 <td></td> 
+				<td><p> Already have an account? <a href="/login">Login here</a></p></td>
 			</tr>
 	
 		</table>
