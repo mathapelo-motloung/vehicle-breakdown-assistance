@@ -11,8 +11,14 @@ public class HomePageController {
 	public String getIndex() {
 		return "index";
 	}
+	
 	@GetMapping("/register")
-	public String register() {
+	public String getRegisterForm() {
 		return "registerform";
+	}
+	
+	@GetMapping("/login")
+	public String getLoginForm() {
+		return "loginform";
 	}
 }

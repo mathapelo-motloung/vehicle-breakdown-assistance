@@ -9,5 +9,6 @@
 <body>
 <h3>Welcome to Vehicle Breakdown Assistance</h3>
 <a href="/register">Register</a>
+<a href="/login">login</a>
 </body>
 </html>
