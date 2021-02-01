@@ -32,7 +32,7 @@ public class UserController {
 	
 	@PostMapping("/adduser")
 	public ResponseEntity<String> createUser(User user, HttpServletResponse response) throws IOException {
-		User entity =  userService.addUser(user);
+		userService.addUser(user);
 		response.sendRedirect("/register");
 		return new ResponseEntity<String>( HttpStatus.OK);
 	}	
