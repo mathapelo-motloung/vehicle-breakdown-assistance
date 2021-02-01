@@ -1,5 +1,6 @@
 package com.zensar.vehiclebreakdown.controller;
 
+import java.io.IOException;
 import java.util.Arrays;
 
 import javax.servlet.http.HttpServletResponse;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.fasterxml.jackson.databind.util.JSONPObject;
@@ -29,9 +31,9 @@ public class UserController {
 	UserService userService;
 	
 	@PostMapping("/adduser")
-	public ResponseEntity<User> createUser(User user) {
-	User entity =  userService.addUser(user);
-	return new ResponseEntity<User>(entity, new HttpHeaders(), HttpStatus.OK);
-	}
-	
+	public ResponseEntity<String> createUser(User user, HttpServletResponse response) throws IOException {
+		User entity =  userService.addUser(user);
+		response.sendRedirect("/register");
+		return new ResponseEntity<String>( HttpStatus.OK);
+	}	
 }
