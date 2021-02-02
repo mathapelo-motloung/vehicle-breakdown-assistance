@@ -2,6 +2,7 @@ package com.zensar.vehiclebreakdown.controller;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -74,6 +75,14 @@ public class UserController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
+	
+	
+	
+	
+	public ResponseEntity<String> createUser(User user, HttpServletResponse response) throws IOException {
+		userService.addUser(user);
+		response.sendRedirect("/register");
 		return new ResponseEntity<String>( HttpStatus.OK);
 	}	
 }
