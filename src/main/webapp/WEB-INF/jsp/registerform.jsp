@@ -25,10 +25,10 @@
 		<table>   
             <tr>
 				<td><form:label path="fname">Name</form:label></td>
-				<td><form:input path="fname" type ="text" name="fname" /></td>
+				<td><form:input path="fname" type ="text" name="fname" minlength="2"/></td>
 			<tr>
 				<td><form:label path="lname">Surname</form:label></td>
-				<td><form:input path="lname" type ="text" name="lname" /></td>
+				<td><form:input path="lname" type ="text" name="lname" minlength="2"/></td>
 			</tr>
 			<tr>
 				<td><form:label path="email">Email</form:label></td>
@@ -60,11 +60,11 @@
 			</tr>
 			<tr>
 				<td><form:label path="username">Username</form:label></td>
-				<td><form:input path="username" type ="text" name="username"/></td>
+				<td><form:input path="username" type ="text" name="username" minlength="2"/></td>
 			</tr>
 			<tr>
 				<td><form:label path="password">Password</form:label></td>
-				<td><form:input path="password" type ="password" name="password"/></td>
+				<td><form:input path="password" type ="password" name="password" minlength="5"/></td>
 			</tr>
 			<tr>
 				<td></td>	
