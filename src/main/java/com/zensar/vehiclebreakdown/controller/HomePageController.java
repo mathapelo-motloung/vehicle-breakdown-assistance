@@ -15,4 +15,12 @@ public class HomePageController {
 	public String register() {
 		return "registerform";
 	}
+	@GetMapping("/makerequest")
+	public String request() {
+		return "requestform";
+	}
+	@GetMapping("/viewrequest")
+	public String requests() {
+		return "viewrequest";
+	}
 }

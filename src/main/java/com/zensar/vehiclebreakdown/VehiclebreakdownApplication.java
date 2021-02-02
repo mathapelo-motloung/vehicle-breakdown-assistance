@@ -8,6 +8,7 @@ public class VehiclebreakdownApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(VehiclebreakdownApplication.class, args);
+		
 	}
 
 }
