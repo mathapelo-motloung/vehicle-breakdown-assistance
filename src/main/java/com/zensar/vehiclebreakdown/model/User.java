@@ -21,18 +21,15 @@ public class User {
 	private int user_id;
 	
 	@NotEmpty
-	@Size(min=2, max=30)
 	private String fname;
 	
 	@NotEmpty
-	@Size(min=2, max=30)
 	private String lname;
 	
-	//@NotEmpty
-	private String user_type;
+	@NotEmpty
+	private String usertype;
 	
 	@NotEmpty
-	@Email
 	private String email;
 	
 	@NotEmpty
@@ -46,6 +43,7 @@ public class User {
 	
 	@NotEmpty
 	private String password;
+	
 	private String status;
 	
 

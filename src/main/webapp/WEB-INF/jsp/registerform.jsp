@@ -12,67 +12,127 @@
 		color: red;
 		font-style: italic;
 	}
+	
 </style>
+
+
 </head>
 <body>
 <h2>Register</h2>
 <hr>
 
-	<form:form action="adduser" method="post" modelAttribute="user">
-		<table>
-			<tr>
+	<form:form action="adduser" method="post" modelAttribute="user" name ="registerForm" onsubmit="return validate()">
+		<table>   
+            <tr>
 				<td><form:label path="fname">Name</form:label></td>
 				<td><form:input path="fname" type ="text" name="fname" /></td>
-				<td><form:errors path="fname" cssclass="error" /></td>
-			</tr>
 			<tr>
 				<td><form:label path="lname">Surname</form:label></td>
 				<td><form:input path="lname" type ="text" name="lname" /></td>
 			</tr>
 			<tr>
-				<td><form:label path="lname">Email</form:label></td>
-				<td><form:input path="lname" type ="email" name="email" /></td>
+				<td><form:label path="email">Email</form:label></td>
+				<td><form:input path="email" type ="email" name="email" /></td>
 			</tr>
 			<tr>
-				<td><form:label path="lname">Contact no.</form:label></td>
-				<td><form:input path="lname" type ="text" name="cellno" /></td>
+				<td><form:label path="cellno">Contact no.</form:label></td>
+				<td><form:input path="cellno" type ="text" name="cellno" id ="contactno"/></td>
 			</tr>
-			<%-- <tr>
-				<td><form:label path="lname" for="roles">Choose a Role:</form:label></td>
+			<tr>
+				<td><form:label path="usertype" for="roles">Choose a Role:</form:label></td>
 				
 				<td>
-					<form:select path="lname" id="roles" name="user_type">
+					<form:select path="usertype" id="roles" name="usertype">
 					  	<form:option value="user">Client</form:option>
 					  	<form:option value="mechanic">Mechanic</form:option>
 					</form:select>
 				</td>
-				
-			</tr> --%>
-			<tr>
-				<td><form:label path="lname">Location</form:label></td>
-				<td><form:input path="lname"  type="text"  placeholder="Search location"  name="location" /></td>
+                <tr>
+				<td><form:label path="location">Location</form:label></td>
+				<td><form:select path="usertype" id="location" name="location">
+					  	<form:option value="johannesburg">Johannesburg</form:option>
+					  	<form:option value="pretoria">Pretoria</form:option>
+					  	<form:option value="sandton">Sandton</form:option>
+					  	<form:option value="midrand">Midrand</form:option>
+					  	<form:option value="soweto">Soweto</form:option>
+					  	<form:option value="vereeniging">Vereeniging</form:option>
+					</form:select></td>
 			</tr>
 			<tr>
-				<td><form:label path="lname">Username</form:label></td>
-				<td><form:input path="lname" type ="text" name="username"/></td>
+				<td><form:label path="username">Username</form:label></td>
+				<td><form:input path="username" type ="text" name="username"/></td>
 			</tr>
 			<tr>
-				<td><form:label path="lname">Password</form:label></td>
-				<td><form:input path="lname" type ="password" name="password"/></td>
+				<td><form:label path="password">Password</form:label></td>
+				<td><form:input path="password" type ="password" name="password"/></td>
 			</tr>
 			<tr>
-				<td></td>
+				<td></td>	
 				<td><input type ="submit" name="register" value="submit" /></td>
 			</tr>
 			<tr>
 				 <td></td> 
 				<td><p> Already have an account? <a href="/login">Login here</a></p></td>
 			</tr>
-	 
-		</table>
+            </table>
 	</form:form>
 	
-	
-	
+	<script type = "text/javascript">
+  
+      function validate() {
+    	  var contactno = document.getElementById("contactno").value;
+      	
+         if( document.registerForm.fname.value == "" ) {
+				document.registerForm.fname.focus();
+				alert("Please enter your name");
+            	return false;
+		 }
+		 if( document.registerForm.lname.value == "" ) {
+				document.registerForm.lname.focus();
+				alert("Please enter your surname");
+            	return false;
+		 }
+		 if( document.registerForm.email.value == "" ) {
+				document.registerForm.email.focus();
+				alert("Please enter your email");
+            	return false;
+		 }
+		 if( document.registerForm.contactno.value == "") {
+				document.registerForm.contactno.focus();
+				alert("Please enter your contact no.");
+            	return false;
+		 }
+		 if( isNaN(contactno)) {
+				document.registerForm.contactno.focus();
+				alert("Contactno must be a valid number");
+         	return false;
+		 }
+		 if( document.registerForm.usertype.value == "" ) {
+				document.registerForm.usertype.focus();
+				alert("Please select role");
+            	return false;
+         }
+		 if( document.registerForm.location.value == "" ) {
+				document.registerForm.location.focus();
+				alert("Please select location");
+         	return false;
+      	}
+		 if( document.registerForm.username.value == "" ) {
+				document.registerForm.username.focus();
+				alert("Please select location");
+      	return false;
+   		}
+		 if( document.registerForm.password.value == "" ) {
+				document.registerForm.password.focus();
+				alert("Please select location");
+      	return false;
+   		}
+         
+         return( true );
+      }
+      
+   
+</script>
+
 </body>
 </html>
