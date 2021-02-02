@@ -4,36 +4,76 @@ import java.io.IOException;
 import java.util.Arrays;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
+
+
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import org.springframework.web.servlet.ModelAndView;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.zensar.vehiclebreakdown.model.Employee;
 import com.zensar.vehiclebreakdown.model.User;
 import com.zensar.vehiclebreakdown.service.UserService;
 
-@RestController
+@Controller
 public class UserController {
 	
 	@Autowired
 	UserService userService;
 	
+	
+	@RequestMapping(value = "/employee", method = RequestMethod.GET)
+    public ModelAndView showForm() {
+        return new ModelAndView("employeeForm", "employee", new Employee());
+    }
+
+//    @RequestMapping(value = "/addEmployee", method = RequestMethod.POST)
+//    public String submit(@Valid @ModelAttribute("employee")Employee employee, 
+//      BindingResult result, ModelMap model) {
+//        if (result.hasErrors()) {
+//            return "employeeForm";
+//        }
+//       
+//        return "employeeView";
+//    }
+    
+//    @RequestMapping(value = "/adduser", method = RequestMethod.POST)
+//    public String submituser(@Valid @ModelAttribute("user")User user, 
+//      BindingResult result, ModelMap model) {
+//        if (result.hasErrors()) {
+//            return "error";
+//        }
+//        model.addAttribute("name", user.getFname());
+//       
+//        return "employeeView";
+//    }
+//	
+	
 	@PostMapping("/adduser")
-	public ResponseEntity<String> createUser(User user, HttpServletResponse response) throws IOException {
-		userService.addUser(user);
-		response.sendRedirect("/register");
+	public ResponseEntity<String> createUser (@Valid @ModelAttribute User user, HttpServletResponse response, BindingResult bindingResult) {
+		 
+		if (bindingResult.hasErrors()) {
+			System.out.println(bindingResult);
+		}
+		try {
+			userService.addUser(user);
+			response.sendRedirect("/register");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return new ResponseEntity<String>( HttpStatus.OK);
 	}	
 }

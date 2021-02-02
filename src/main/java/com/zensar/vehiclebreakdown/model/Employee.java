@@ -1,26 +1,19 @@
 package com.zensar.vehiclebreakdown.model;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-
-@Entity
-@Table(name="users")
-public class User {
-	
+public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int user_id;
 	
-	@NotEmpty
+    @NotEmpty
 	@Size(min=2, max=30)
 	private String fname;
 	
@@ -47,12 +40,7 @@ public class User {
 	@NotEmpty
 	private String password;
 	
-	public int getUser_id() {
-		return user_id;
-	}
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
-	}
+    
 	public String getFname() {
 		return fname;
 	}
@@ -101,30 +89,7 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public User(int user_id, String fname, String lname, String user_type, String email, String cellno, String location,
-			String username, String password) {
-		super();
-		this.user_id = user_id;
-		this.fname = fname;
-		this.lname = lname;
-		this.user_type = user_type;
-		this.email = email;
-		this.cellno = cellno;
-		this.location = location;
-		this.username = username;
-		this.password = password;
-	}
-	public User() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 	
-	
-
-	
-
-	
-	
-	
-
+    
+    
 }
