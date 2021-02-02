@@ -23,8 +23,9 @@ public class HomePageController {
 	public String getIndex() {
 		return "index";
 	}
+	
 	@GetMapping("/register")
-	public String register() {
+	public String getRegisterForm() {
 		return "registerform";
 	}
 	@GetMapping("/viewuser")
@@ -33,5 +34,9 @@ public class HomePageController {
 		 List<User> user = userService.getAll();
 		 session.setAttribute("user", user);
 		return "viewuserform";
+	
+	@GetMapping("/login")
+	public String getLoginForm() {
+		return "loginform";
 	}
 }
