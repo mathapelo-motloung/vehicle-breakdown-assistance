@@ -36,4 +36,7 @@ public class UserController {
 		response.sendRedirect("/register");
 		return new ResponseEntity<String>( HttpStatus.OK);
 	}	
+	
+	
+	
 }

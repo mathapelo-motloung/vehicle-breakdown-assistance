@@ -12,7 +12,7 @@
 	<h2>Login</h2>
 
 	<hr>
-	<form action="login" method="post">
+	<form action="login.do" method="post">
 		<table>
 			<tr>
 				<td><label>Username</label></td>
