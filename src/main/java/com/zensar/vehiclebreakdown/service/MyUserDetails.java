@@ -24,7 +24,7 @@ public class MyUserDetails implements UserDetails {
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		
 		
-		SimpleGrantedAuthority authority = new SimpleGrantedAuthority(user.getUser_type());
+		SimpleGrantedAuthority authority = new SimpleGrantedAuthority(user.getUsertype());
 		return   Arrays.asList(authority);
 		
 		

@@ -1,10 +1,10 @@
 package com.zensar.vehiclebreakdown.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import com.zensar.vehiclebreakdown.dao.UserDao;
 import com.zensar.vehiclebreakdown.model.User;
 
@@ -19,6 +19,13 @@ public class UserService {
 	}
 	
 	
+	public List<User> getUserByRole(String role){
+		return userDao.findByUsertype(role);
+	}
+	
+	public List<User> getAll(){
+		return (List<User>) userDao.findAll();
+	}
 	
 
 	

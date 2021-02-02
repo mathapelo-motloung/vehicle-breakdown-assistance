@@ -1,12 +1,13 @@
 package com.zensar.vehiclebreakdown.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity(name="users")
+@Entity(name = "users")
 @Table(name = "users")
 public class User {
 	@Id
@@ -14,12 +15,34 @@ public class User {
 	private int user_id;
 	private String fname;
 	private String lname;
-	private String user_type;
+	@Column(name="user_type")
+	private String usertype;
 	private String email;
 	private String cellno;
 	private String location;
 	private String username;
 	private String password;
+	private String status;
+
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public User(int user_id, String fname, String lname, String usertype, String email, String cellno, String location,
+			String username, String password, String status) {
+		super();
+		this.user_id = user_id;
+		this.fname = fname;
+		this.lname = lname;
+		this.usertype = usertype;
+		this.email = email;
+		this.cellno = cellno;
+		this.location = location;
+		this.username = username;
+		this.password = password;
+		this.status = status;
+	}
 
 	public int getUser_id() {
 		return user_id;
@@ -45,12 +68,12 @@ public class User {
 		this.lname = lname;
 	}
 
-	public String getUser_type() {
-		return user_type;
+	public String getUsertype() {
+		return usertype;
 	}
 
-	public void setUser_type(String user_type) {
-		this.user_type = user_type;
+	public void setUsertype(String usertype) {
+		this.usertype = usertype;
 	}
 
 	public String getEmail() {
@@ -93,23 +116,19 @@ public class User {
 		this.password = password;
 	}
 
-	public User(int user_id, String fname, String lname, String user_type, String email, String cellno, String location,
-			String username, String password) {
-		super();
-		this.user_id = user_id;
-		this.fname = fname;
-		this.lname = lname;
-		this.user_type = user_type;
-		this.email = email;
-		this.cellno = cellno;
-		this.location = location;
-		this.username = username;
-		this.password = password;
+	public String getStatus() {
+		return status;
 	}
 
-	public User() {
-		super();
-		// TODO Auto-generated constructor stub
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	@Override
+	public String toString() {
+		return "User [user_id=" + user_id + ", fname=" + fname + ", lname=" + lname + ", usertype=" + usertype
+				+ ", email=" + email + ", cellno=" + cellno + ", location=" + location + ", username=" + username
+				+ ", password=" + password + ", status=" + status + "]";
 	}
 
 }
