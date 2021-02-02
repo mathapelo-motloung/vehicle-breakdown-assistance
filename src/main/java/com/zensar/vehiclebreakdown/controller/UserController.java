@@ -1,6 +1,7 @@
 package com.zensar.vehiclebreakdown.controller;
 
 import java.util.Arrays;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -30,8 +31,11 @@ public class UserController {
 	
 	@PostMapping("/adduser")
 	public ResponseEntity<User> createUser(User user) {
-	User entity =  userService.addUser(user);
-	return new ResponseEntity<User>(entity, new HttpHeaders(), HttpStatus.OK);
+		User entity =  userService.addUser(user);
+		return new ResponseEntity<User>(entity, new HttpHeaders(), HttpStatus.OK);
 	}
+	
+	
+	
 	
 }
