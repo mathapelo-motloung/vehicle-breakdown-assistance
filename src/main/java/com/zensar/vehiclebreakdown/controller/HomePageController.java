@@ -31,11 +31,6 @@ public class HomePageController {
 		return "registerform";
 	}
 	
-	@GetMapping("/register-success")
-	public String getRegisterForm() {
-		return "registersuccess";
-	}
-	
 	@GetMapping("/viewuser")
 	public String getUsers(HttpServletRequest req) {
 		 HttpSession session=req.getSession();
