@@ -2,7 +2,9 @@ package com.zensar.vehiclebreakdown.service;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import java.util.Optional;
+
 
 import org.hibernate.annotations.SqlFragmentAlias;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,10 +33,17 @@ public class UserService {
 		
 	}
 	
+
+	public List<User> getUserByRole(String role){
+		return userDao.findByUsertype(role);
+	}
+	
+
 	public List<User> getAll(){
 		return (List<User>) userDao.findAll();
 	}
 	
+
 	/*
 	 * T Mkhari
 	 * Method used to find mechanic for changing
@@ -52,4 +61,5 @@ public class UserService {
 	public User saveUser(User user) {
 		return  userDao.save(user);
 	}	
+
 }

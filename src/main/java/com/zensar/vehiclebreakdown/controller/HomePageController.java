@@ -23,15 +23,20 @@ public class HomePageController {
 	public String getIndex() {
 		return "index";
 	}
+	
 	@GetMapping("/register")
-	public String register() {
+	public String getRegisterForm(Model model) {
+		User user = new User();
+		model.addAttribute("user",user);
 		return "registerform";
 	}
 	
+
 	/*
 	 * T Mkhari
 	 * This method populate the page with all user on the db
 	 */
+
 	@GetMapping("/viewuser")
 	public String getUsers(HttpServletRequest req) {
 		 HttpSession session=req.getSession();
@@ -40,4 +45,10 @@ public class HomePageController {
 		return "viewuserform";
 	}
 	
+
+	@GetMapping("/login")
+	public String getLoginForm() {
+		return "loginform";
+	}
+
 }
