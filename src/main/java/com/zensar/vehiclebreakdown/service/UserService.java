@@ -23,6 +23,10 @@ public class UserService {
 		return  userDao.save(user);
 	}
 	
+	/*
+	 * T Mkhari
+	 * Method that finds a record base on the attribute userType
+	 */
 	public List<User> getUserByRole(String role){
 		return userDao.findByUsertype(role);
 		
