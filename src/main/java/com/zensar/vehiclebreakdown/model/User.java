@@ -12,6 +12,7 @@ import javax.validation.constraints.Size;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
+
 @Entity
 @Table(name="users")
 public class User {
@@ -25,11 +26,15 @@ public class User {
 	
 	@NotEmpty
 	private String lname;
+
+	private String usertype;
+
 	
 	@NotEmpty
 	private String usertype;
 	
 	@NotEmpty
+
 	private String email;
 	
 	@NotEmpty
@@ -43,7 +48,7 @@ public class User {
 	
 	@NotEmpty
 	private String password;
-	
+
 	private String status;
 	
 
