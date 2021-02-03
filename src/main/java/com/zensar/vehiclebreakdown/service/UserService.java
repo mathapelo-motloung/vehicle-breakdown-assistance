@@ -48,6 +48,5 @@ public class UserService {
 	 */
 	public User saveUser(User user) {
 		return  userDao.save(user);
-	}
-	
+	}	
 }
