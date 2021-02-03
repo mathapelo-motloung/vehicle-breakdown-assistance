@@ -71,10 +71,10 @@ table, th, td {
 						<td>${p.getStatus()}</td>
 						<td>
 							<u:if test="${p.getStatus().equals('BLOCKED')}">
-								<input type="submit" name="thabo" value="enable${p.getUser_id()}" />
+								<input type="submit" name="status" value="enable${p.getUser_id()}" />
 							</u:if> 
 							<u:if test="${p.getStatus().equals('NOT BLOCKED')}">
-								<input type="submit" name="thabo" value="disable${p.getUser_id()}" />
+								<input type="submit" name="status" value="disable${p.getUser_id()}" />
 							</u:if>
 						</td>
 					</tr>
