@@ -6,13 +6,26 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<script>
+function validate(frm){
+	if(frm.login.value == ""){
+		alert('Login name is required... ');
+		return false;
+	}
+	if(frm.password.value ==""){
+		alert('Password is required... ');
+		return false;
+	}
+	return true;
+}
+</script>
 </head>
 <body>
 
 	<h2>Login</h2>
 
 	<hr>
-	<form action="login.do" method="post">
+	<form action="login.do" method="post" onsubmit="return validate(this);">
 		<table>
 			<tr>
 				<td><label>Username</label></td>

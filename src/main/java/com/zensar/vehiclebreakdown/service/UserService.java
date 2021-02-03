@@ -29,4 +29,9 @@ public class UserService {
 	
 
 	
+	public List<User> getMechanicByLocation(String location){
+		return userDao.findByLocation(location);
+		
+	}
+	
 }

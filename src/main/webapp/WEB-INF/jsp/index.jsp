@@ -7,8 +7,9 @@
 <title>Vehicle Breakdown Assistance</title>
 </head>
 <body>
+<jsp:include page="nav.jsp"></jsp:include>
 <h3>Welcome to Vehicle Breakdown Assistance</h3>
-<a href="/register">Register</a>
-<a href="/login">login</a>
+<a href="/register/all">Register</a>
+<a href="/login/all">login</a>
 </body>
 </html>

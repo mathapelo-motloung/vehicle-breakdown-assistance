@@ -20,6 +20,7 @@
     </style>
 </head>
 <body>
+<jsp:include page="nav.jsp"></jsp:include>
 <h2>View Users</h2>
 <hr>
 
@@ -29,8 +30,8 @@
 				<td><label>Filter Users</label></td>
 				<td>
 					<select id="roles" name="user_type">
-					  	<option value="user">User</option>
-					  	<option value="mechanic">Mechanic</option>
+					  	<option value="ROLE_USER">User</option>
+					  	<option value="ROLE_MECHANIC">Mechanic</option>
 					  	<option value="all">All</option>
 					</select>
 				</td>
