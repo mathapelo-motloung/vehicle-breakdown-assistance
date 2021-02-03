@@ -83,13 +83,14 @@ CREATE TABLE `users` (
   `fname` varchar(45) NOT NULL,
   `lname` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
-  `user_type` varchar(45) NOT NULL,
+  `usertype` varchar(45) NOT NULL,
   `cellno` varchar(45) NOT NULL,
   `location` varchar(45) NOT NULL,
   `username` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
+  `status` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,7 +99,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'nelle','bum','nelle@gmail.com','admin','0113632222','Johannesburg','nelle','12345'),(2,'alfred','alfred','alfred@gmail.com','user','0116969999','Soweto','alfred','12345'),(3,'mathapelo','mathapelo','mathapelo@gmail.com','mechanic','0126565555','Pretoria','mathapelo','12345'),(4,'success','success','success@gmail.com','mechanic','0137875555','Soweto','success','12345'),(5,'thabo','thabo','thabo@gmail.com','user ','0126569999','Pretoria','thabo','12345');
+INSERT INTO `users` VALUES (1,'nelle','bum','nelle@gmail.com','admin','0113632222','Johannesburg','nelle','12345',NULL),(2,'alfred','alfred','alfred@gmail.com','user','0116969999','Soweto','alfred','12345',NULL),(3,'mathapelo','mathapelo','mathapelo@gmail.com','mechanic','0126565555','Pretoria','mathapelo','12345','NOT BLOCKED'),(4,'success','success','success@gmail.com','mechanic','0137875555','Soweto','success','12345','NOT BLOCKED'),(5,'thabo','thabo','thabo@gmail.com','user ','0126569999','Pretoria','thabo','12345',NULL),(6,'Thabo','Mkhari','MUZIMKHARI@YAHOO.CO.ZA','mechanic','0786236044','johannesburg','muzika','12345',NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -111,4 +112,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-28 14:20:19
+-- Dump completed on 2021-02-03 15:35:38
