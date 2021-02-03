@@ -25,15 +25,19 @@ public class HomePageController {
 	}
 	
 	@GetMapping("/register")
-	public String getRegisterForm() {
+	public String getRegisterForm(Model model) {
+		User user = new User();
+		model.addAttribute("user",user);
 		return "registerform";
 	}
+	
 	@GetMapping("/viewuser")
 	public String getUsers(HttpServletRequest req) {
 		 HttpSession session=req.getSession();
 		 List<User> user = userService.getAll();
 		 session.setAttribute("user", user);
 		return "viewuserform";
+	}
 	
 	@GetMapping("/login")
 	public String getLoginForm() {
