@@ -70,6 +70,7 @@ table, th, td {
 						<td>${p.getPassword()}</td>
 						<td>${p.getStatus()}</td>
 						<td>
+						
 							<u:if test="${p.getStatus().equals('BLOCKED')}">
 								<input type="submit" name="status" value="enable${p.getUser_id()}" />
 							</u:if> 

@@ -39,4 +39,5 @@ public class HomePageController {
 		 session.setAttribute("user", user);
 		return "viewuserform";
 	}
+	
 }

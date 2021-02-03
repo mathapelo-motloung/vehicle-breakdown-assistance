@@ -34,7 +34,4 @@ public class UserController {
 		User entity =  userService.addUser(user);
 		return new ResponseEntity<User>(entity, new HttpHeaders(), HttpStatus.OK);
 	}
-	
-	
-	
 }

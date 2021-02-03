@@ -22,7 +22,6 @@ public class UserService {
 	public User addUser(@RequestBody User user) {
 		return  userDao.save(user);
 	}
-	
 	/*
 	 * T Mkhari
 	 * Method that finds a record base on the attribute userType
