@@ -9,12 +9,12 @@ import org.springframework.stereotype.Repository;
 import com.zensar.vehiclebreakdown.model.User;
 
 @Repository
-public interface UserDao extends CrudRepository<User,Long> {
+public interface UserDao extends CrudRepository<User,Integer> {
 
 	public List<User> findByUsertype(String role);
 
 //	public List<User> findAllById(int id);
 	
-//	public List<User> findAById(int id);
+	// public User findById(int id);
 		
 }

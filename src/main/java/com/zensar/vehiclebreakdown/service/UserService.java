@@ -2,6 +2,7 @@ package com.zensar.vehiclebreakdown.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.hibernate.annotations.SqlFragmentAlias;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class UserService {
 		return (List<User>) userDao.findAll();
 	}
 	
-//	public int getById(int id) {
-//		return userDao.findAllById(id);
-//	}
+	public Optional<User> getById(int id) {
+		return userDao.findById(id);
+	}
 }

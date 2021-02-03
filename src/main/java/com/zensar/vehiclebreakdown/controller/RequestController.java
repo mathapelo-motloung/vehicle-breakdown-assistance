@@ -29,7 +29,8 @@ public class RequestController {
 	
 	@Autowired
 	RequestService requestService;
-	//UserService userService;
+	@Autowired
+	UserService userService;
 	@GetMapping("/all")
 	public String getRequests( HttpServletRequest req,HttpServletResponse resp) throws ServletException, IOException {
 		List<Request>request=requestService.getRequests();
@@ -60,4 +61,8 @@ public class RequestController {
 		response.sendRedirect("/makerequest");
 		return new ResponseEntity<String>( HttpStatus.OK);
 	}
+
+//	public User getUser(){
+//		return 1;
+//	}
 }
