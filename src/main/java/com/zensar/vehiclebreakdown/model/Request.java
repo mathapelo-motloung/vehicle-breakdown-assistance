@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.JoinColumn;
 
 @Entity
@@ -25,6 +26,11 @@ public class Request {
 	private String description;
 	private Date date;
 
+	@ManyToMany
+	@JoinTable(name = "userrequest", joinColumns = {@JoinColumn(name = "rid")},inverseJoinColumns = {@JoinColumn(name="uid") })
+	
+	private List<User> users = new ArrayList<User>();
+	
 	public int getRequest_id() {
 		return request_id;
 	}
@@ -50,4 +56,12 @@ public class Request {
 		this.date = date;
 	}
 
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+	
 }

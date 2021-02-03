@@ -16,8 +16,15 @@ public class RequestService {
 	@Autowired
 	RequestDao requestDao;
 	
+	public Request addRequest(@RequestBody Request request) {
+		return  requestDao.save(request);
+	}
+	
 	public List<Request> getRequests() {
 
 		return (List<Request>) requestDao.findAll();
 	}
+	
+	
+	
 }
