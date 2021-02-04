@@ -2,29 +2,35 @@ package com.zensar.vehiclebreakdown.model;
 
 import java.sql.Date;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.Cache;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 @Entity
+@Cacheable
+@Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 public class Feedback {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int feeback_id;
-	private int user_id;
 	private String description;
-	private Date date;
-
+	
+	
 	public Feedback() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Feedback(int feeback_id, int user_id, String description, Date date) {
+	public Feedback(int feeback_id,  String description, Date date) {
 		super();
 		this.feeback_id = feeback_id;
-		this.user_id = user_id;
 		this.description = description;
-		this.date = date;
+		
 	}
 
 	public int getFeeback_id() {
@@ -35,14 +41,6 @@ public class Feedback {
 		this.feeback_id = feeback_id;
 	}
 
-	public int getUser_id() {
-		return user_id;
-	}
-
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
-	}
-
 	public String getDescription() {
 		return description;
 	}
@@ -51,13 +49,13 @@ public class Feedback {
 		this.description = description;
 	}
 
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-	
+//	public Date getDate() {
+//		return date;
+//	}
+//
+//	public void setDate(Date date) {
+//		this.date = date;
+//	}
+//	
 
 }

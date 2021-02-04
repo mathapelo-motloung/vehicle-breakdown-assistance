@@ -75,7 +75,7 @@ public class ViewController {
 		if(status.length() == 7) {
 			
 			//fetching the record from the db before updating it
-			OpUser = userService.changeStatus(id); 
+			OpUser = userService.findUserById(id); 
 			newUser = new User(id, OpUser.get().getFname(), OpUser.get().getLname(), OpUser.get().getUsertype(),
 					OpUser.get().getEmail(), OpUser.get().getCellno(), OpUser.get().getLocation(), OpUser.get().getUsername(),
 					OpUser.get().getPassword(), "NOT BLOCKED"); // changing the status of mechanic manually
@@ -83,7 +83,7 @@ public class ViewController {
 		}
 		 //check if current status of a mechanic is enable or disabled
 		else if(status.length() == 8){
-			OpUser2 = userService.changeStatus(id); //fetching the record from the db before updating it
+			OpUser2 = userService.findUserById(id); //fetching the record from the db before updating it
 			newUser2 = new User(id, OpUser2.get().getFname(), OpUser2.get().getLname(), OpUser2.get().getUsertype(),
 					OpUser2.get().getEmail(), OpUser2.get().getCellno(), OpUser2.get().getLocation(), OpUser2.get().getUsername(),
 					OpUser2.get().getPassword(), "BLOCKED"); // changing the status of mechanic manually

@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.hibernate.annotations.SqlFragmentAlias;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -39,9 +41,8 @@ public class UserService {
 		return (List<User>) userDao.findAll();
 	}
 	
-	//Method used to find mechanic for changing status from blocked to unblocked
-
-	public Optional<User> changeStatus(int id) {
+	//Find user by id
+	public Optional<User> findUserById(int id) {
 		return userDao.findById(id);
 
 	}

@@ -13,13 +13,7 @@ import com.zensar.vehiclebreakdown.model.User;
 @Repository
 public interface UserDao extends CrudRepository<User, Integer> {
 
-	
-	
-
-
 	public List<User> findByUsertype(String role);
-	
-	
 	public List<User> findByLocation(String location);
 	
 	String SELECT_BY_LOC_AND_ROLE = "select u FROM users u " + " WHERE u.location =:location AND u.usertype =:usertype";
@@ -28,4 +22,9 @@ public interface UserDao extends CrudRepository<User, Integer> {
 	List<User> findByLocationRole(@Param("location") String location, @Param("usertype") String usertype);
 }	
 
+public interface UserDao extends CrudRepository<User,Integer> {
+	
+	public List<User> findByUsertype(String role);	
+	public Optional<User> findById(int id);
+}
 

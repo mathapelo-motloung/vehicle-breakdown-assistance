@@ -1,15 +1,31 @@
 package com.zensar.vehiclebreakdown.model;
 
 import javax.persistence.Column;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Cacheable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
 
 @Entity(name = "users")
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import javax.persistence.JoinColumn;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.Cache;
+
+@Entity
+@Cacheable
+@Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 @Table(name="users")
 
 public class User {
@@ -44,6 +60,15 @@ public class User {
 	private String password;
 
 	private String status;
+<<<<<<< Updated upstream
+=======
+	
+	@OneToMany
+	@JoinTable(name = "user_feedback", joinColumns = {@JoinColumn(name = "user_id")},inverseJoinColumns = {@JoinColumn(name="feedback_id") })
+	private List<Feedback> feedbackMessages = new ArrayList<Feedback>();
+
+	
+>>>>>>> Stashed changes
 
 	public User() {
 		super();
