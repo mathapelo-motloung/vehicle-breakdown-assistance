@@ -1,17 +1,11 @@
 package com.zensar.vehiclebreakdown.controller;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
-
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
-
 import org.springframework.http.HttpStatus;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,11 +17,11 @@ import com.zensar.vehiclebreakdown.service.UserService;
 
 @Controller
 public class UserController {
-	
+
 	@Autowired
 	UserService userService;
 
-	
+
 	@PostMapping("/adduser")
 	public ResponseEntity<String> createUser(@Valid User user, BindingResult bindingResult,Model model,HttpServletResponse response) throws IOException {
 		model.addAttribute("user",user);
@@ -40,5 +34,6 @@ public class UserController {
 			return ResponseEntity.ok("Registration successful.");		
 		}
 	}	
+
 
 }

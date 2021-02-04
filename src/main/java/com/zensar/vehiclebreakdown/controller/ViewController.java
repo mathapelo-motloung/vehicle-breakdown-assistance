@@ -1,6 +1,5 @@
 package com.zensar.vehiclebreakdown.controller;
 
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
@@ -11,43 +10,37 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpRequest;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
+import com.zensar.vehiclebreakdown.dao.UserDao;
 import com.zensar.vehiclebreakdown.model.User;
 import com.zensar.vehiclebreakdown.service.UserService;
 
 @Controller
 public class ViewController {
-	
+
 	@Autowired
 	UserService userService;
+
+	@Autowired
+	UserDao userDao;
+
 	
-	@PostMapping("/filteruser")
-	public String getUser(@RequestParam("user_type") String userType, HttpServletRequest req) throws URISyntaxException{
+	@PostMapping("admin/filteruser")
+	public String getUser(@RequestParam("user_type") String userType, HttpServletRequest req)
+			throws URISyntaxException {
 		List<User> user = null;
 		HttpSession session = req.getSession();
-		
+
 		// getting records according the user_type value in the database
-		if(userType.equalsIgnoreCase("user") || userType.equalsIgnoreCase("mechanic")) { 
-			user = userService.getUserByRole(userType); 
-		}else if(userType.equalsIgnoreCase("all")) {
-			 user = userService.getAll();
+		if (userType.equalsIgnoreCase("ROLE_USER") || userType.equalsIgnoreCase("ROLE_MECHANIC")) {
+			user = userService.getUserByRole(userType);
+		} else if (userType.equalsIgnoreCase("all")) {
+			user = userService.getAll();
+		
 		}
 		
 		session.setAttribute("user", user);
@@ -55,10 +48,15 @@ public class ViewController {
 	}
 
 	
+
+
+	/*
+	 * T Mkhari
+	 * This method changed the status of a mechanic from being block 
+	 * to being unblocked, and its only accessible to the admin
+	 */
 	
-	//This method changed the status of a mechanic from being block to being unblocked, 
-	//and its only accessible to the admin 
-	@RequestMapping(value = "/block", method = RequestMethod.POST)
+	@RequestMapping(value = "admin/block", method = RequestMethod.POST)
 	public String blockUser(@RequestParam(value="status",required=true) String status, HttpServletRequest req) {
 	
 		User newUser = null;
@@ -93,6 +91,7 @@ public class ViewController {
 		}
 		return "viewuserform";
 	}
+
 	
 	
 
