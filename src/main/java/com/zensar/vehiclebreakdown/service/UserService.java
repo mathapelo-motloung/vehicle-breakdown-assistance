@@ -52,5 +52,12 @@ public class UserService {
 	public User saveUser(User user) {
 		return userDao.save(user);
 	}
+	
+	public List<User> getUserByLocRole(String location, String role){
+		
+		return userDao.findByLocationRole(location, role);
+	}
+	
+
 
 }

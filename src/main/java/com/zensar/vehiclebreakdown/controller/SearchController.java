@@ -33,7 +33,7 @@ public class SearchController {
 		String role = "ROLE_MECHANIC";
 
 		HttpSession session = req.getSession();
-		user = userService.getMechanicByLocation(location);
+		user = userService.getUserByLocRole(location, role);
 		session.setAttribute("user", user);
 		return "searchlocationform";
 	}
