@@ -32,6 +32,11 @@ public class HomePageController {
 	}
 	
 	//This method populate the page with all user on the db
+	@GetMapping("/feedback")
+	public String getFeedbackForm() {
+		return "feedbackform";
+	}
+	
 	@GetMapping("/viewuser")
 	public String getUsers(HttpServletRequest req) {
 		 HttpSession session=req.getSession();
