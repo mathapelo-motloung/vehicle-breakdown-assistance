@@ -21,6 +21,7 @@
 <body>
 	<h2>Register</h2>
 	<hr>
+
 	<form:form action="adduser" method="post" modelAttribute="user" name ="registerForm" onsubmit="return validate()">
 		<table>   
             <tr>

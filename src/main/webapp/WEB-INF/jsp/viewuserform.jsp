@@ -1,6 +1,8 @@
 <%@page import="java.util.List"%>
 <%@page import="com.zensar.vehiclebreakdown.model.User"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="u"%>
 <!DOCTYPE html>
@@ -11,13 +13,17 @@
 
 <style>
 table, th, td {
+
 	padding: 10px;
 	border: 1px solid black;
 	border-collapse: collapse;
 }
 </style>
 </head>
+
 <body>
+	
+
 <h2>View Users</h2>
 <hr>
 
@@ -26,13 +32,13 @@ table, th, td {
 			<tr>
 				<td><label>Filter Users</label></td>
 				<td><select id="roles" name="user_type">
-						<option value="user">User</option>
-						<option value="mechanic">Mechanic</option>
+						<option value="ROLE_USER">User</option>
+						<option value="ROLE_MECHANIC">Mechanic</option>
 						<option value="all">All</option>
 				</select></td>
 			</tr>
 			<tr>
-				<td></td>
+				
 				<td><input type="submit" name="filter" value="submit"></td>
 			</tr>
 		</div>
@@ -59,8 +65,10 @@ table, th, td {
 
 				<u:forEach items="${user}" var="p">
 					<tr>
-						<td>${p.getUser_id()}<input type="hidden" name="id" value="${p.getUser_id()}"/></td>
-						<td>${p.getFname()}<input type="hidden" name="fname" value="${p.getFname()}"/></td>
+						<td>${p.getUser_id()}<input type="hidden" name="id"
+							value="${p.getUser_id()}" /></td>
+						<td>${p.getFname()}<input type="hidden" name="fname"
+							value="${p.getFname()}" /></td>
 						<td>${p.getLname()}</td>
 						<td>${p.getEmail()}</td>
 						<td>${p.getUsertype()}</td>
@@ -69,19 +77,20 @@ table, th, td {
 						<td>${p.getUsername()}</td>
 						<td>${p.getPassword()}</td>
 						<td>${p.getStatus()}</td>
-						<td>
-						
-							<u:if test="${p.getStatus().equals('BLOCKED')}">
-								<input type="submit" name="status" value="enable${p.getUser_id()}" />
-							</u:if> 
-							<u:if test="${p.getStatus().equals('NOT BLOCKED')}">
-								<input type="submit" name="status" value="disable${p.getUser_id()}" />
-							</u:if>
-						</td>
+						<td><u:if test="${p.getStatus().equals('BLOCKED')}">
+								<input type="submit" name="status"
+									value="enable${p.getUser_id()}" />
+							</u:if> <u:if test="${p.getStatus().equals('NOT BLOCKED')}">
+								<input type="submit" name="status"
+									value="disable${p.getUser_id()}" />
+							</u:if></td>
 					</tr>
 				</u:forEach>
 			</table>
+		</div>
+	
 	</form>
+
 	
 </body>
 </html>

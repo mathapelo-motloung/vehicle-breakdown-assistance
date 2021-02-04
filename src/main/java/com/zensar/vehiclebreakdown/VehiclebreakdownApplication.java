@@ -1,4 +1,3 @@
-package com.zensar.vehiclebreakdown;
 /**
  * Authors: Mathapelo Motloung
  * 			Kwanele Bam
@@ -8,10 +7,14 @@ package com.zensar.vehiclebreakdown;
  * 
  * Project: Vehicle Breakdown Assistance
  */
-
+package com.zensar.vehiclebreakdown;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import com.zensar.vehiclebreakdown.dao.UserDao;
 
+@ComponentScan
 @SpringBootApplication
 public class VehiclebreakdownApplication {
 
