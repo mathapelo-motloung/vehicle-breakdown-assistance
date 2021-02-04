@@ -37,7 +37,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		       .antMatchers("/user/**").authenticated()
 		       .anyRequest().permitAll()
 		       .and()
-		       .formLogin().permitAll();
+		       .formLogin().loginPage("/login").permitAll();
 	}
 	
 	private PasswordEncoder getPasswordEncoder() {
@@ -56,5 +56,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			}
 		};
 	}
-
 }
