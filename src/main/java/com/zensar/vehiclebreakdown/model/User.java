@@ -27,9 +27,6 @@ public class User {
 	@NotEmpty
 	private String lname;
 
-	private String usertype;
-
-	
 	@NotEmpty
 	private String usertype;
 	
