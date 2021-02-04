@@ -22,12 +22,6 @@ public class UserService {
 		return userDao.save(user);
 	}
 
-	
-
-	public List<User> getMechanicByLocation(String location) {
-		return userDao.findByLocation(location);
-	}
-
 
 	//Method that finds a record base on the attribute userType
 	public List<User> getUserByRole(String role){
@@ -53,10 +47,8 @@ public class UserService {
 		return userDao.save(user);
 	}
 	
-	public List<User> getUserByLocRole(String location, String role){
-		
-		return userDao.findByLocationRole(location, role);
-	}
+	
+	
 	
 
 

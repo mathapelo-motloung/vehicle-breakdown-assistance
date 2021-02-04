@@ -55,16 +55,7 @@ public class HomePageController {
 	
 	
 	
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
-	@GetMapping("/user/searchlocation")
-	public String getMechanic(HttpServletRequest req) {
-		String role = "ROLE_MECHANIC";
-		 HttpSession session=req.getSession();
-		 List<User> user = userService.getUserByRole(role);
-		 session.setAttribute("user", user);
-		return "searchlocationform";
 	
-	}
 	
 	@GetMapping("/login/all")
 	public String getLoginForm() {
