@@ -81,7 +81,7 @@ public class ViewController {
 				user.get().getEmail(), user.get().getCellno(), user.get().getLocation(), user.get().getUsername(),
 				user.get().getPassword(), "NOT BLOCKED");
 		
-		user2 =  userService.saveUser(newUser);
+		user2 =  userService.addUser(newUser);
 		
 		
 		System.out.println("////////////////" + newUser);

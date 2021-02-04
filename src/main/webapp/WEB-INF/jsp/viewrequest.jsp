@@ -14,7 +14,9 @@
 
 
 <form action="all" method="get">
-	
+	<c:forEach items="${user}" var="p">
+		
+	</c:forEach>
 	<c:forEach items="${requests}" var="p">
 	
 		<div class="card">
