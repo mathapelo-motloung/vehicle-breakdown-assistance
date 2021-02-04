@@ -27,6 +27,68 @@
 		<div>
 			<tr>
 				<td><label>Filter Users</label></td>
+<<<<<<< HEAD
+=======
+<<<<<<< blockmechanicfeature
+				<td><select id="roles" name="user_type">
+						<option value="user">User</option>
+						<option value="mechanic">Mechanic</option>
+						<option value="all">All</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" name="filter" value="submit"></td>
+			</tr>
+		</div>
+	</form>
+
+	<div style="margin-top: 25px;"></div>
+
+	<form action="block" method="post">
+		<div>
+			<table>
+				<tr>
+					<td>user Id</td>
+					<td>Name</td>
+					<td>Surname</td>
+					<td>Email Address</td>
+					<td>User Type</td>
+					<td>Cell Number</td>
+					<td>Location</td>
+					<td>Username</td>
+					<td>Password</td>
+					<td>Status</td>
+					<td>Enable/Disable</td>
+				</tr>
+
+				<u:forEach items="${user}" var="p">
+					<tr>
+						<td>${p.getUser_id()}<input type="hidden" name="id" value="${p.getUser_id()}"/></td>
+						<td>${p.getFname()}<input type="hidden" name="fname" value="${p.getFname()}"/></td>
+						<td>${p.getLname()}</td>
+						<td>${p.getEmail()}</td>
+						<td>${p.getUsertype()}</td>
+						<td>${p.getCellno()}</td>
+						<td>${p.getLocation()}</td>
+						<td>${p.getUsername()}</td>
+						<td>${p.getPassword()}</td>
+						<td>${p.getStatus()}</td>
+						<td>
+						
+							<u:if test="${p.getStatus().equals('BLOCKED')}">
+								<input type="submit" name="status" value="enable${p.getUser_id()}" />
+							</u:if> 
+							<u:if test="${p.getStatus().equals('NOT BLOCKED')}">
+								<input type="submit" name="status" value="disable${p.getUser_id()}" />
+							</u:if>
+						</td>
+					</tr>
+				</u:forEach>
+			</table>
+		</div>
+=======
+>>>>>>> 38ef8b7a8ddf9851ca64c971585cb0e78e90b2e3
 				<td>
 					<select id="roles" name="user_type">
 					  	<option value="user">User</option>

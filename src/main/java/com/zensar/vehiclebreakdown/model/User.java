@@ -15,6 +15,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 
+
 @Entity
 @Table(name="users")
 public class User {
@@ -28,11 +29,15 @@ public class User {
 	
 	@NotEmpty
 	private String lname;
+
+	private String usertype;
+
 	
 	@NotEmpty
 	private String usertype;
 	
 	@NotEmpty
+
 	private String email;
 	
 	@NotEmpty
@@ -46,7 +51,7 @@ public class User {
 	
 	@NotEmpty
 	private String password;
-	
+
 	private String status;
 	
 	@ManyToMany(mappedBy = "users")

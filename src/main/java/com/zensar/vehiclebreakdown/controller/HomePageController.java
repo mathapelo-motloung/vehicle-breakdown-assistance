@@ -40,6 +40,12 @@ public class HomePageController {
 	
 	
 	
+
+	/*
+	 * T Mkhari
+	 * This method populate the page with all user on the db
+	 */
+
 	@GetMapping("/viewuser")
 	public String getUsers(HttpServletRequest req) {
 		 HttpSession session=req.getSession();
@@ -48,8 +54,10 @@ public class HomePageController {
 		return "viewuserform";
 	}
 	
+
 	@GetMapping("/login")
 	public String getLoginForm() {
 		return "loginform";
 	}
+
 }

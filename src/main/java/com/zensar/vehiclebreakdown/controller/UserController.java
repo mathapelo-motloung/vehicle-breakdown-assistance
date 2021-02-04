@@ -28,6 +28,12 @@ public class UserController {
 	UserService userService;
 
 	@PostMapping("/adduser")
+
+	public ResponseEntity<User> createUser(User user) {
+		User entity =  userService.addUser(user);
+		return new ResponseEntity<User>(entity, new HttpHeaders(), HttpStatus.OK);
+	}
+
 	public ResponseEntity<String> createUser(@Valid User user, BindingResult bindingResult,Model model,HttpServletResponse response) throws IOException {
 		model.addAttribute("user",user);
 		
@@ -39,4 +45,5 @@ public class UserController {
 			return ResponseEntity.ok("Registration successful.");		
 		}
 	}	
+
 }
