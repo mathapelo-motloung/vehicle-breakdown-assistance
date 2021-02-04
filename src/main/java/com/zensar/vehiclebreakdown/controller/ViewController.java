@@ -43,6 +43,7 @@ public class ViewController {
 			user = userService.getAll();
 		
 		}
+		
 		session.setAttribute("user", user);
 		return "viewuserform";
 	}
@@ -59,35 +60,37 @@ public class ViewController {
 	@RequestMapping(value = "admin/block", method = RequestMethod.POST)
 	public String blockUser(@RequestParam(value="status",required=true) String status, HttpServletRequest req) {
 	
-	User newUser = null;
-	User newUser2 = null;
-	
-	Optional<User> OpUser = null;	
-	Optional<User> OpUser2 = null;
-	
-	User user =  null;
-	User user2 =  null;
-	
-	HttpSession session = req.getSession();
-	int id = Integer.parseInt(status.substring(status.length() - 1, status.length())); //get id when a mechanic is clicked
-	
-	if(status.length() == 7) //check if current status of a mechanic is enable or disabled
-	{ 
-		OpUser = userService.changeStatus(id); //fetching the record from the db before updating it
-		newUser = new User(id, OpUser.get().getFname(), OpUser.get().getLname(), OpUser.get().getUsertype(),
-				OpUser.get().getEmail(), OpUser.get().getCellno(), OpUser.get().getLocation(), OpUser.get().getUsername(),
-				OpUser.get().getPassword(), "NOT BLOCKED"); // changing the status of mechanic manually
-		user =  userService.saveUser(newUser); //saving the newly updated record
-	}
-	else if(status.length() == 8) //check if current status of a mechanic is enable or disabled
-	{
-		OpUser2 = userService.changeStatus(id); //fetching the record from the db before updating it
-		newUser2 = new User(id, OpUser2.get().getFname(), OpUser2.get().getLname(), OpUser2.get().getUsertype(),
-				OpUser2.get().getEmail(), OpUser2.get().getCellno(), OpUser2.get().getLocation(), OpUser2.get().getUsername(),
-				OpUser2.get().getPassword(), "BLOCKED"); // changing the status of mechanic manually
-		user2 =  userService.saveUser(newUser2); //saving the newly updated record
-	}
-	return "viewuserform";
+		User newUser = null;
+		User newUser2 = null;
+		
+		Optional<User> OpUser = null;	
+		Optional<User> OpUser2 = null;
+		
+		User user =  null;
+		User user2 =  null;
+		
+		HttpSession session = req.getSession();
+		int id = Integer.parseInt(status.substring(status.length() - 1, status.length())); //get id when a mechanic is clicked
+		
+		//check if current status of a mechanic is enable or disabled
+		if(status.length() == 7) {
+			
+			//fetching the record from the db before updating it
+			OpUser = userService.changeStatus(id); 
+			newUser = new User(id, OpUser.get().getFname(), OpUser.get().getLname(), OpUser.get().getUsertype(),
+					OpUser.get().getEmail(), OpUser.get().getCellno(), OpUser.get().getLocation(), OpUser.get().getUsername(),
+					OpUser.get().getPassword(), "NOT BLOCKED"); // changing the status of mechanic manually
+			user =  userService.saveUser(newUser); //saving the newly updated record
+		}
+		 //check if current status of a mechanic is enable or disabled
+		else if(status.length() == 8){
+			OpUser2 = userService.changeStatus(id); //fetching the record from the db before updating it
+			newUser2 = new User(id, OpUser2.get().getFname(), OpUser2.get().getLname(), OpUser2.get().getUsertype(),
+					OpUser2.get().getEmail(), OpUser2.get().getCellno(), OpUser2.get().getLocation(), OpUser2.get().getUsername(),
+					OpUser2.get().getPassword(), "BLOCKED"); // changing the status of mechanic manually
+			user2 =  userService.saveUser(newUser2); //saving the newly updated record
+		}
+		return "viewuserform";
 	}
 
 	

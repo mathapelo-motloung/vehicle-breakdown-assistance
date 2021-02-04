@@ -17,39 +17,38 @@ public class UserService {
 	@Autowired
 	UserDao userDao;
 
+	//Create new user
 	public User addUser(@RequestBody User user) {
 		return userDao.save(user);
 	}
 
-	/*
-	 * T Mkhari Method that finds a record base on the attribute userType
-	 */
-	public List<User> getUserByRole(String role) {
-		return userDao.findByUsertype(role);
-
-	}
-
-	public List<User> getAll() {
-		return (List<User>) userDao.findAll();
-	}
+	
 
 	public List<User> getMechanicByLocation(String location) {
 		return userDao.findByLocation(location);
 	}
 
-	/*
-	 * T Mkhari Method used to find mechanic for changing status from blocked to
-	 * unblocked
-	 */
+
+	//Method that finds a record base on the attribute userType
+	public List<User> getUserByRole(String role){
+		return userDao.findByUsertype(role);	
+	}
+	
+	//Get all users
+	public List<User> getAll(){
+		return (List<User>) userDao.findAll();
+	}
+	
+	//Method used to find mechanic for changing status from blocked to unblocked
+
 	public Optional<User> changeStatus(int id) {
 		return userDao.findById(id);
 
 	}
 
-	/*
-	 * T Mkhari method used for saving changes after a mechanic has been blocked or
-	 * unblocked
-	 */
+	
+	//method used for saving changes after a mechani has been blocked or unblocked
+
 	public User saveUser(User user) {
 		return userDao.save(user);
 	}

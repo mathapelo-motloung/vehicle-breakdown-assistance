@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PostMapping;
+
 import com.zensar.vehiclebreakdown.model.User;
 import com.zensar.vehiclebreakdown.service.UserService;
 
@@ -20,6 +22,7 @@ public class UserController {
 	UserService userService;
 
 
+	@PostMapping("/adduser")
 	public ResponseEntity<String> createUser(@Valid User user, BindingResult bindingResult,Model model,HttpServletResponse response) throws IOException {
 		model.addAttribute("user",user);
 		
