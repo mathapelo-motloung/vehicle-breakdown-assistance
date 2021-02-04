@@ -22,10 +22,9 @@
 		<div class="card">
 		 
 		  <div class="container">
-		   <h5>${p.getUser_id()}</h5>
-		   <h5>${p.getDescription()}</h5>
-		    <h5>${p.getDate() }</h5>
-		    // <h5>${p.getDescription()}</h5>
+		   <h5>User: ${p.getUser_id()}</h5>
+		   <h5>Description: ${p.getDescription()}</h5>
+		    <h5>Date: ${p.getDate() }</h5>
 		    
 		  </div>
 		</div>

@@ -3,11 +3,15 @@ package com.zensar.vehiclebreakdown.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -30,9 +34,6 @@ public class User {
 	@NotEmpty
 	private String lname;
 
-	private String usertype;
-
-	
 	@NotEmpty
 	private String usertype;
 	
@@ -54,9 +55,28 @@ public class User {
 
 	private String status;
 	
-	@ManyToMany(mappedBy = "users")
-	private List<Request> requests = new ArrayList<Request>();
 	
+//	 @OneToOne(fetch = FetchType.LAZY,mappedBy = "user",cascade=CascadeType.ALL)
+	private Request requests;
+	
+	public User( @NotEmpty String fname, @NotEmpty String lname, @NotEmpty String usertype,
+			@NotEmpty String email, @NotEmpty String cellno, @NotEmpty String location, @NotEmpty String username,
+			@NotEmpty String password, String status, Request requests) {
+		super();
+		
+		this.fname = fname;
+		this.lname = lname;
+		this.usertype = usertype;
+		this.email = email;
+		this.cellno = cellno;
+		this.location = location;
+		this.username = username;
+		this.password = password;
+		this.status = status;
+		this.requests = requests;
+	}
+
+
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -183,16 +203,16 @@ public class User {
 	public String toString() {
 		return "User [user_id=" + user_id + ", fname=" + fname + ", lname=" + lname + ", usertype=" + usertype
 				+ ", email=" + email + ", cellno=" + cellno + ", location=" + location + ", username=" + username
-				+ ", password=" + password + ", status=" + status + "]";
+				+ ", password=" + password + ", status=" + status + ", requests=" + requests + "]";
 	}
 	
 	
 	
 	
-	public List<Request> getRequests() {
+	public Request getRequests() {
 		return requests;
 	}
-	public void setRequests(List<Request> requests) {
+	public void setRequests(Request requests) {
 		this.requests = requests;
 	}
 	

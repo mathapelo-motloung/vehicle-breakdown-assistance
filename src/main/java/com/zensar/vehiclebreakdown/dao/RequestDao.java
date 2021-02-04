@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.zensar.vehiclebreakdown.model.Request;
 	@Repository
-	public interface RequestDao extends CrudRepository<Request, Integer>{
+	public interface RequestDao extends CrudRepository<Request, Long>{
 
 
 }
