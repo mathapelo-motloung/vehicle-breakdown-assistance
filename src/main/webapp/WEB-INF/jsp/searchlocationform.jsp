@@ -30,7 +30,7 @@ table, tr, td, th {
 </script>
 </head>
 <body>
-<jsp:include page="nav.jsp"></jsp:include>
+
 	<h2>Search for Mechanics</h2>
 	<hr>
 
@@ -64,7 +64,7 @@ table, tr, td, th {
 					<td>Cell Number</td>
 					<td>Location</td>
 					<td>Username</td>
-					<td>Status</td>
+					
 					
 				</tr>
 
@@ -77,7 +77,7 @@ table, tr, td, th {
 						<td>${p.getCellno()}</td>
 						<td>${p.getLocation()}</td>
 						<td>${p.getUsername()}</td>
-						<td>${p.getStatus()}</td>
+					
 						
 					</tr>
 				</u:forEach>
