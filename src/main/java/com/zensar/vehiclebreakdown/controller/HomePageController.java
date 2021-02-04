@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,11 +29,19 @@ public class HomePageController {
 	}
 	
 	
+	
 	@GetMapping("/register/all")
-	public String getRegisterForm() {
+	public String getRegisterForm(Model model) {
+		User user = new User();
+		model.addAttribute("user",user);
 		return "registerform";
 	}
 	
+
+	/*
+	 * T Mkhari
+	 * This method populate the page with all user on the db
+	 */
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
 	@GetMapping("/admin/viewuser")
 	public String getUsers(HttpServletRequest req) {
@@ -40,15 +49,18 @@ public class HomePageController {
 		 List<User> user = userService.getAll();
 		 session.setAttribute("user", user);
 		return "viewuserform";
-	
 	}
+	
+
+	
 	
 	
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
 	@GetMapping("/user/searchlocation")
 	public String getMechanic(HttpServletRequest req) {
+		String role = "ROLE_MECHANIC";
 		 HttpSession session=req.getSession();
-		 List<User> user = userService.getAll();
+		 List<User> user = userService.getUserByRole(role);
 		 session.setAttribute("user", user);
 		return "searchlocationform";
 	
@@ -72,4 +84,8 @@ public class HomePageController {
 		}
 
 	}
+
+	
+
+
 }

@@ -2,24 +2,35 @@ package com.zensar.vehiclebreakdown.controller;
 
 import java.io.IOException;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import com.zensar.vehiclebreakdown.model.User;
 import com.zensar.vehiclebreakdown.service.UserService;
 
-@RestController
+@Controller
 public class UserController {
 
 	@Autowired
 	UserService userService;
 
-	public ResponseEntity<String> createUser(User user, HttpServletResponse response) throws IOException {
-		userService.addUser(user);
-		response.sendRedirect("/register");
-		return new ResponseEntity<String>(HttpStatus.OK);
-	}
+
+	public ResponseEntity<String> createUser(@Valid User user, BindingResult bindingResult,Model model,HttpServletResponse response) throws IOException {
+		model.addAttribute("user",user);
+		
+		if (bindingResult.hasErrors()) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+	               .body("All fields required.Make sure your input is valid.");
+		}else {
+			userService.addUser(user);
+			return ResponseEntity.ok("Registration successful.");		
+		}
+	}	
+
 
 }

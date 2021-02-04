@@ -6,22 +6,46 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
 
 @Entity(name = "users")
-@Table(name = "users")
+@Table(name="users")
+
 public class User {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int user_id;
+	
+	@NotEmpty
 	private String fname;
+	
+	@NotEmpty
 	private String lname;
-	@Column(name="user_type")
+
+	@Column(name="usertype")
 	private String usertype;
+
+	@NotEmpty
 	private String email;
+	
+	@NotEmpty
 	private String cellno;
+	
+	@NotEmpty
 	private String location;
+	
+	@NotEmpty
 	private String username;
+	
+	@NotEmpty
 	private String password;
+
 	private String status;
 
 	public User() {
