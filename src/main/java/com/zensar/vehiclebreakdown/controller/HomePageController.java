@@ -1,6 +1,5 @@
 package com.zensar.vehiclebreakdown.controller;
 
-import org.springframework.security.access.prepost.PreAuthorize;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -29,15 +28,14 @@ public class HomePageController {
 		return "index";
 	}
 	
-	@GetMapping("/register/all")
+	@GetMapping("/register")
 	public String getRegisterForm(Model model) {
 		User user = new User();
 		model.addAttribute("user",user);
 		return "registerform";
 	}
 
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-	@GetMapping("/admin/viewuser")
+	@GetMapping("/viewuser")
 	public String getUsers(HttpServletRequest req) {
 		 HttpSession session=req.getSession();
 		 List<User> user = userService.getAll();
@@ -45,8 +43,7 @@ public class HomePageController {
 		return "viewuserform";
 	}
 	
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
-	@GetMapping("/user/searchlocation")
+	@GetMapping("/searchlocation")
 	public String getMechanic(HttpServletRequest req) {
 		String role = "ROLE_MECHANIC";
 		 HttpSession session=req.getSession();
@@ -61,7 +58,6 @@ public class HomePageController {
 		return "loginform";
 	}
 	
-//	@ModelAttribute
 	@PostMapping("/login.do")
 	public String loginUser(@RequestParam("username") String username, @RequestParam("password") String password,
 			HttpServletRequest req) {
@@ -69,11 +65,10 @@ public class HomePageController {
 		HttpSession session=req.getSession();
 		 
 		try {
-			User user = userDao.findByUsername(username);
-			if (username.equals(user.getUsername())) {
-				if(password.equals(user.getPassword())) {
-//						model.addAttribute("user", user);
-						session.setAttribute("user", user);
+			User userSession = userDao.findByUsername(username);
+			if (username.equals(userSession.getUsername())) {
+				if(password.equals(userSession.getPassword())) {
+						session.setAttribute("userSession", userSession);
 						return "index";	
 				}else {
 					return "loginform";
