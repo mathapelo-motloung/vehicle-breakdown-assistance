@@ -1,5 +1,6 @@
 package com.zensar.vehiclebreakdown.controller;
 
+
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -29,7 +30,7 @@ public class HomePageController {
 	}
 
 	
-	@GetMapping("/register")
+	@GetMapping("/register/all")
 	public String getRegisterForm(Model model) {
 		User user = new User();
 		model.addAttribute("user", user);
@@ -42,10 +43,9 @@ public class HomePageController {
 		return "feedbackform";
 	}
 	
-	@GetMapping("/viewuser")
-	public String getUsers(HttpServletRequest req) {
 
-	@GetMapping("/viewuser")
+	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+	@GetMapping("/admin/viewuser")
 	public String getUsers(HttpServletRequest req) {
 		 HttpSession session=req.getSession();
 		 List<User> user = userService.getAll();
@@ -53,7 +53,8 @@ public class HomePageController {
 		return "viewuserform";
 	}
 	
-	@GetMapping("/searchlocation")
+	@PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
+	@GetMapping("/user/searchlocation")
 	public String getMechanic(HttpServletRequest req) {
 		String role = "ROLE_MECHANIC";
 		 HttpSession session=req.getSession();
@@ -82,27 +83,4 @@ public class HomePageController {
 
 	
 
-	@PostMapping("/login.do")
-	public String loginUser(@RequestParam("username") String username, @RequestParam("password") String password,
-			HttpServletRequest req) {
-		
-		HttpSession session=req.getSession();
-		 
-		try {
-			User userSession = userDao.findByUsername(username);
-			if (username.equals(userSession.getUsername())) {
-				if(password.equals(userSession.getPassword())) {
-						session.setAttribute("userSession", userSession);
-						return "index";	
-				}else {
-					return "loginform";
-				}
-			} else {
-				return "loginform";
-			}
-		}catch (Exception e) {
-			System.out.println("User could not be identified: "+ e);
-		}
-		return "loginform";
-	}
 }

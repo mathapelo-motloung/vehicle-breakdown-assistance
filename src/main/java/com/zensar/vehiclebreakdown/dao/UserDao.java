@@ -2,6 +2,7 @@ package com.zensar.vehiclebreakdown.dao;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -15,6 +16,9 @@ public interface UserDao extends CrudRepository<User, Integer> {
 	
 	public User findByUsername(String username);
 	public User findByPassword(String password);
+	public Optional<User> findById(int id);
+
+
 	public List<User> findByUsertype(String role);
 	public List<User> findByLocation(String location);
 	
@@ -23,10 +27,4 @@ public interface UserDao extends CrudRepository<User, Integer> {
 	@Query(SELECT_BY_LOC_AND_ROLE)
 	List<User> findByLocationRole(@Param("location") String location, @Param("usertype") String usertype);
 }	
-
-public interface UserDao extends CrudRepository<User,Integer> {
-	
-	public List<User> findByUsertype(String role);	
-	public Optional<User> findById(int id);
-}
 
