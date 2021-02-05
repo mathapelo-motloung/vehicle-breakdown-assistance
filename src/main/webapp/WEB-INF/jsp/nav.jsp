@@ -2,24 +2,28 @@
 <table width="400">
 	<tr>
 	<c:choose>
-	  	<c:when test="${user.getUsertype() == 'ROLE_ADMIN'}">
+	  	<c:when test="${userSession.getUsertype() == 'ROLE_ADMIN'}">
 	    	<th><a href="/home">Home</a></th>
-			<th><a href="/admin/viewuser">View User</a></th>
+			<th><a href="/viewuser">View User</a></th>
 			<th><a href="####">View Requests</a></th>
 			<th><a href="####">View Feedback</a></th>
-			<th><a href="logincontroller.do?action=logout">Logout</a></th>
+			<th><a href="/login">Logout</a></th>
 	  	</c:when>
-	  	<c:when test="${user.getUsertype() == 'ROLE_USER'}">
+	  	<c:when test="${userSession.getUsertype() == 'ROLE_USER'}">
 	   	 	<th><a href="/home">Home</a></th>
-			<th><a href="/user/searchlocation">Search Location</a></th>
+			<th><a href="/searchlocation">Search Location</a></th>
 			<th><a href="####">Send Request</a></th>
 			<th><a href="####">Send Feedback</a></th>
-			<th><a href="logincontroller.do?action=logout">Logout</a></th>
+			<th><a href="/login">Logout</a></th>
+	  	</c:when>
+	  	<c:when test="${userSession.getUsertype() == 'ROLE_MECHANIC'}">
+	   	 	<th><a href="/home">Home</a></th>
+	    	<th><a href="####">Send Feedback</a></th>
+			<th><a href="/login">Logout</a></th>
 	  	</c:when>
 	  	<c:otherwise>
 	    	<th><a href="/home">Home</a></th>
-	    	<th><a href="####">Send Feedback</a></th>
-			<th><a href="logincontroller.do?action=logout">Logout</a></th>
+			<th><a href="/login">Logout</a></th>
 	  	</c:otherwise>
 	</c:choose>
 	</tr>

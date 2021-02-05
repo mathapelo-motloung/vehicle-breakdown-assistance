@@ -23,13 +23,10 @@ public class UserService {
 	public User addUser(@RequestBody User user) {
 		return userDao.save(user);
 	}
-
 	
-
 	public List<User> getMechanicByLocation(String location) {
 		return userDao.findByLocation(location);
 	}
-
 
 	//Method that finds a record base on the attribute userType
 	public List<User> getUserByRole(String role){
@@ -43,13 +40,13 @@ public class UserService {
 	
 	//Find user by id
 	public Optional<User> findUserById(int id) {
+	//Method used to find mechanic for changing status from blocked to unblocked
+	public Optional<User> changeStatus(int id) {
 		return userDao.findById(id);
 
 	}
 
-	
-	//method used for saving changes after a mechani has been blocked or unblocked
-
+	//method used for saving changes after a mechanic has been blocked or unblocked
 	public User saveUser(User user) {
 		return userDao.save(user);
 	}
