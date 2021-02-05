@@ -8,6 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.zensar.vehiclebreakdown.dao.UserDao;
 import com.zensar.vehiclebreakdown.model.User;
 import com.zensar.vehiclebreakdown.service.UserService;
@@ -25,6 +29,7 @@ public class HomePageController {
 		return "index";
 	}
 
+	
 	@GetMapping("/register/all")
 	public String getRegisterForm(Model model) {
 		User user = new User();
@@ -40,6 +45,17 @@ public class HomePageController {
 	
 	@GetMapping("/viewuser")
 	public String getUsers(HttpServletRequest req) {
+
+	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+	@GetMapping("/admin/viewuser")
+	public String getUsers(HttpServletRequest req) {
+		 HttpSession session=req.getSession();
+		 List<User> user = userService.getAll();
+		 session.setAttribute("user", user);
+		return "viewuserform";
+	}
+	
+	@PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
 	@GetMapping("/user/searchlocation")
 	public String getMechanic(HttpServletRequest req) {
 		String role = "ROLE_MECHANIC";
