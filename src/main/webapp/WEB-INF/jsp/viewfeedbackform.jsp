@@ -18,7 +18,8 @@
 
 </head>
 <body>
-	<h2>Send Request</h2>
+	<h2>View Feedback</h2>
+	<hr>
 
 	<form method="post" action="/sendrequestfrom">
 		<div>

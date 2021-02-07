@@ -1,7 +1,14 @@
 package com.zensar.vehiclebreakdown.controller;
+import java.io.IOException;
+import java.rmi.ServerException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -57,14 +64,23 @@ public class FeedbackController {
 	}
 	
 	//This method list all feedback from users
-		//@GetMapping("/feedback/all")
-//		public String getFeedback_id(HttpServletRequest req, HttpServletResponse resp ) throws ServerException, IOException{
-//			
-//			List<Feedback> request = feedbackservice.getFeedback_id();
-//			req.setAttribute("feedback", request);
-//			
-//			return "viewfeedbackform";
-//			
-//		}
+	@GetMapping("feedback/all")
+	public String getFeedback_id(HttpServletRequest req, HttpServletResponse resp ) throws ServerException, IOException{
+		
+		List<Feedback> request = feedbackservice.getFeedback_id();
+		req.setAttribute("feedback", request);
+		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/viewfeedbackform.jsp");
+		try {
+			rd.forward(req, resp);
+		} catch (ServletException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "viewfeedbackform";
+		
+	}
 
 }
