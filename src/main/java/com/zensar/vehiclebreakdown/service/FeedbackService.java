@@ -19,7 +19,7 @@ public class FeedbackService {
 	}
 	
 	//Method to list feedback from users
-	public List<Feedback> getFeedback_id(){
+	public List<Feedback> getFeedback(){
 		return (List<Feedback>) feedBackDao.findAll();
 	}
 }

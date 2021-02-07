@@ -4,7 +4,7 @@
 	<c:choose>
 	  	<c:when test="${userSession.getUsertype() == 'ROLE_ADMIN'}">
 			<th><a href="/viewuser">View User</a></th>
-			<th><a href="###">View Feedback</a></th>
+			<th><a href="/feedback/all">View Feedback</a></th>
 			<th><a href="/login">Logout</a></th>
 	  	</c:when>
 	  	<c:when test="${userSession.getUsertype() == 'ROLE_USER'}">

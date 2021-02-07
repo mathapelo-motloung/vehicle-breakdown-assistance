@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -58,17 +59,11 @@ public class FeedbackController {
 
 	
 	//This method list all feedback from users
-	@GetMapping("/all")
-	public String getFeedback(){
-		return "viewfeedbackform";
-	}
-	
-	//This method list all feedback from users
-	@GetMapping("feedback/all")
-	public String getFeedback_id(HttpServletRequest req, HttpServletResponse resp ) throws ServerException, IOException{
+	@GetMapping("/feedback/all")
+	public  ResponseEntity<Feedback> getFeedback(HttpServletRequest req, HttpServletResponse resp){
+		List<Feedback> list= feedbackservice.getFeedback();
+		req.setAttribute("feedback", list);
 		
-		List<Feedback> request = feedbackservice.getFeedback_id();
-		req.setAttribute("feedback", request);
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/viewfeedbackform.jsp");
 		try {
 			rd.forward(req, resp);
@@ -79,8 +74,6 @@ public class FeedbackController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "viewfeedbackform";
-		
+		return new ResponseEntity<Feedback>(HttpStatus.OK);
 	}
-
 }

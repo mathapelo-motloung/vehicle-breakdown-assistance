@@ -1,8 +1,9 @@
 <%@page import="java.util.List"%>
-<%@page import="com.zensar.vehiclebreakdown.model.User"%>
+<%@page import="com.zensar.vehiclebreakdown.model.Feedback"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="u"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,9 +11,11 @@
 <title>Insert title here</title>
 
 <style>
-.error {
-	color: red;
-	font-style: italic;
+table, th, td {
+
+	padding: 10px;
+	border: 1px solid black;
+	border-collapse: collapse;
 }
 </style>
 
@@ -20,28 +23,25 @@
 <body>
 	<h2>View Feedback</h2>
 	<hr>
-
-	<form method="post" action="/sendrequestfrom">
 		<div>
 			<table>
 				<tr>
-					<td>Feedback Id:</td>
-					<td>User Id:</td>
-					<td>Description:</td>
-					<td>Date:</td>
+					<td>Name</td>
+					<td>Surname</td>
+					<td>Type</td>
+					<td>Feedback Description</td>
+					<td>Date and Time</td>
 				</tr>
 				<u:forEach items="${feedback}" var="f">
 					<tr>
-						<td>${f.getFeedbackId()}<input type="hidden" name="feedback_id"
-							value="${f.getFeedbackId()}" /></td>
-						<td>${f.getUserId()}<input type="hidden" name="user_id"
-							value="${f.getUserId()}" /></td>
-						<td>${f.getDescription()}</td><td>${f.getDescription()}</td>
-						<td>${f.getDate()}</td><td>${f.getDate()}</td>
+						<td>${f.getUser().getFname()}</td>
+						<td>${f.getUser().getLname()}</td>
+						<td>${f.getUser().getUsertype()}</td>
+						<td>${f.getDescription()}</td>
+						<td>${f.getDate()}</td>
 					</tr>
 				</u:forEach>
 			</table>
 		</div>
-	</form>
 </body>
 </html>
