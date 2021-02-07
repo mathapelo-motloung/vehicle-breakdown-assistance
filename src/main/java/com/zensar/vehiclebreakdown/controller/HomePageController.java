@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import com.zensar.vehiclebreakdown.dao.UserDao;
+import com.zensar.vehiclebreakdown.model.Request;
 import com.zensar.vehiclebreakdown.model.User;
 import com.zensar.vehiclebreakdown.service.UserService;
 
@@ -58,7 +59,18 @@ public class HomePageController {
 	public String getLoginForm() {
 		return "loginform";
 	}
-
+//	@GetMapping("/requestform")
+//	public String request(Model model) {
+//		Request request=new Request();
+//		model.addAttribute("request", request);
+//		return "requestform";
+//	}
+	
+	
+	@GetMapping("/viewrequest")
+	public String requests() {
+		return "viewrequest";}
+	
 	
 
 }
