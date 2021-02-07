@@ -33,7 +33,7 @@ table, tr, td, th {
 
 	<h2>Search for Mechanics</h2>
 	<hr>
-
+	
 	<form action="filtersearch" method="post"
 		onsubmit="return validate(this);">
 <div>

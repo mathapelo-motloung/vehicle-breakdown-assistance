@@ -1,13 +1,33 @@
 package com.zensar.vehiclebreakdown.model;
 
 import javax.persistence.Column;
+<<<<<<< HEAD
+=======
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Cacheable;
+>>>>>>> db16d066e4e20781159bf021897ce179085fa0cb
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
+<<<<<<< HEAD
+=======
+
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import javax.persistence.JoinColumn;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.Cache;
+>>>>>>> db16d066e4e20781159bf021897ce179085fa0cb
 
 @Entity(name = "users")
 @Table(name="users")
@@ -44,6 +64,13 @@ public class User {
 	private String password;
 
 	private String status;
+<<<<<<< HEAD
+=======
+
+	
+	@OneToMany
+	private List<Feedback> feedbackMessages = new ArrayList<Feedback>();
+>>>>>>> db16d066e4e20781159bf021897ce179085fa0cb
 
 	public User() {
 		super();
