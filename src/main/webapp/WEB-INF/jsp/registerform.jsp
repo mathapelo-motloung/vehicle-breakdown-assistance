@@ -21,6 +21,7 @@
 <body>
 	<h2>Register</h2>
 	<hr>
+
 	<form:form action="adduser" method="post" modelAttribute="user" name ="registerForm" onsubmit="return validate()">
 		<table>   
             <tr>
@@ -35,6 +36,11 @@
 				<td><form:input path="email" type ="email" name="email" /></td>
 			</tr>
 			<tr>
+				
+				<td><form:input path="status" type ="hidden" name="status" value= "NOT BLOCKED"/></td>
+			</tr>
+			
+			<tr>
 				<td><form:label path="cellno">Contact no.</form:label></td>
 				<td><form:input path="cellno" type ="text" name="cellno" id ="contactno"/></td>
 			</tr>
@@ -43,19 +49,19 @@
 				
 				<td>
 					<form:select path="usertype" id="roles" name="usertype">
-					  	<form:option value="user">Client</form:option>
-					  	<form:option value="mechanic">Mechanic</form:option>
+					  	<form:option value="ROLE_USER">Client</form:option>
+					  	<form:option value="ROLE_MECHANIC">Mechanic</form:option>
 					</form:select>
 				</td>
                 <tr>
 				<td><form:label path="location">Location</form:label></td>
-				<td><form:select path="usertype" id="location" name="location">
-					  	<form:option value="johannesburg">Johannesburg</form:option>
-					  	<form:option value="pretoria">Pretoria</form:option>
-					  	<form:option value="sandton">Sandton</form:option>
-					  	<form:option value="midrand">Midrand</form:option>
-					  	<form:option value="soweto">Soweto</form:option>
-					  	<form:option value="vereeniging">Vereeniging</form:option>
+				<td><form:select path="location" id="location" name="location">
+					  	<form:option value="Johannesburg">Johannesburg</form:option>
+					  	<form:option value="Pretoria">Pretoria</form:option>
+					  	<form:option value="Sandton">Sandton</form:option>
+					  	<form:option value="Midrand">Midrand</form:option>
+					  	<form:option value="Soweto">Soweto</form:option>
+					  	<form:option value="Vereeniging">Vereeniging</form:option>
 					</form:select></td>
 			</tr>
 			<tr>
