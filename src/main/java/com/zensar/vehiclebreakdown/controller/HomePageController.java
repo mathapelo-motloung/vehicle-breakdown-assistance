@@ -32,6 +32,9 @@ public class HomePageController {
 		return "index";
 	}
 
+//		User user = new User();
+//		model.addAttribute("user", user);
+//	}
 	
 	@GetMapping("/register")
 	public String getRegisterForm(Model model) {
@@ -76,6 +79,7 @@ public class HomePageController {
 		 session.setAttribute("user", user);
 		return "viewuserform";
 	}
+
 	
 	@GetMapping("/searchlocation")
 	public String getMechanic(HttpServletRequest req) {
