@@ -8,9 +8,15 @@
 </head>
 <body>
 	<jsp:include page="nav.jsp"></jsp:include>
-
-	<h3>Welcome to Vehicle Breakdown Assistance</h3>
-	<a href="/register/all">Register</a>
-	<a href="/login/all">login</a>
+	<h3>Home Page</h3>
+	<hr>
+	<h3>Welcome to the Vehicle Breakdown Assistance System</h3>
+    <h3 align="right">You're logged in as ${sessionName} </h3>
+    
+    <!-- 
+	<a href="/register">Register</a>
+	<a href="/login">login</a>
+	 -->
+	 
 </body>
 </html>

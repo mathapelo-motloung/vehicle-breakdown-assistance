@@ -4,6 +4,7 @@
 	<c:choose>
 	  	<c:when test="${userSession.getUsertype() == 'ROLE_ADMIN'}">
 	    	<th><a href="/home">Home</a></th>
+	    	<th><a href="/searchlocation">Search Location</a></th>
 			<th><a href="/viewuser">View User</a></th>
 			<th><a href="####">View Requests</a></th>
 			<th><a href="####">View Feedback</a></th>
@@ -19,11 +20,12 @@
 	  	<c:when test="${userSession.getUsertype() == 'ROLE_MECHANIC'}">
 	   	 	<th><a href="/home">Home</a></th>
 	    	<th><a href="####">Send Feedback</a></th>
-			<th><a href="/login">Logout</a></th>
+			<th><a href="/logout">Logout</a></th>
 	  	</c:when>
 	  	<c:otherwise>
 	    	<th><a href="/home">Home</a></th>
-			<th><a href="/login">Logout</a></th>
+			<th><a href="/register">Register</a></th>
+			<th><a href="/login">Login</a></th>
 	  	</c:otherwise>
 	</c:choose>
 	</tr>

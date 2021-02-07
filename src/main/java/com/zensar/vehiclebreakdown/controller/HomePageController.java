@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import com.zensar.vehiclebreakdown.dao.UserDao;
 import com.zensar.vehiclebreakdown.model.User;
 import com.zensar.vehiclebreakdown.service.UserService;
@@ -42,7 +42,7 @@ public class HomePageController {
 		 session.setAttribute("user", user);
 		return "viewuserform";
 	}
-	
+
 	@GetMapping("/searchlocation")
 	public String getMechanic(HttpServletRequest req) {
 		String role = "ROLE_MECHANIC";
@@ -50,7 +50,6 @@ public class HomePageController {
 		 List<User> user = userService.getUserByRole(role);
 		 session.setAttribute("user", user);
 		return "searchlocationform";
-	
 	}
 	
 	@GetMapping("/login")
@@ -69,6 +68,7 @@ public class HomePageController {
 			if (username.equals(userSession.getUsername())) {
 				if(password.equals(userSession.getPassword())) {
 						session.setAttribute("userSession", userSession);
+						session.setAttribute("sessionName", username);
 						return "index";	
 				}else {
 					return "loginform";
