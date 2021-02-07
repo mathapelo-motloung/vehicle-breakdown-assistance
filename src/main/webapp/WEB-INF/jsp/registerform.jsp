@@ -36,6 +36,11 @@
 				<td><form:input path="email" type ="email" name="email" /></td>
 			</tr>
 			<tr>
+				
+				<td><form:input path="status" type ="hidden" name="status" value= "NOT BLOCKED"/></td>
+			</tr>
+			
+			<tr>
 				<td><form:label path="cellno">Contact no.</form:label></td>
 				<td><form:input path="cellno" type ="text" name="cellno" id ="contactno"/></td>
 			</tr>

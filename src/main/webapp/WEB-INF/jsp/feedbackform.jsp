@@ -22,7 +22,7 @@
 				<td><label>Provide feed back below</label></td>
 			</tr>
 			<tr>
-				<td><textarea name="description" >
+				<td><textarea name="description" rows="4" cols="50">
 					
 				</textarea></td>
 			</tr>

@@ -25,7 +25,7 @@ public class SearchController {
 	UserDao userDao;
 
 	
-	@PostMapping("user/filtersearch")
+	@PostMapping("/filtersearch")
 	public String getMechanic(@RequestParam("location") String location, HttpServletRequest req)
 			throws URISyntaxException {
 		List<User> user = null;

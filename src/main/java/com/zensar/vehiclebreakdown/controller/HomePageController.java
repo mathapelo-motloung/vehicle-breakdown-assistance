@@ -5,7 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -69,8 +69,7 @@ public class HomePageController {
         return "loginform";
     }
 
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-	@GetMapping("admin/viewuser")
+	@GetMapping("/viewuser")
 	public String getUsers(HttpServletRequest req) {
 		 HttpSession session=req.getSession();
 		 List<User> user = userService.getAll();
@@ -78,8 +77,7 @@ public class HomePageController {
 		return "viewuserform";
 	}
 	
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
-	@GetMapping("/user/searchlocation")
+	@GetMapping("/searchlocation")
 	public String getMechanic(HttpServletRequest req) {
 		String role = "ROLE_MECHANIC";
 		 HttpSession session=req.getSession();
