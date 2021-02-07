@@ -1,15 +1,6 @@
 package com.zensar.vehiclebreakdown.dao;
-
-<<<<<<< HEAD
-
-import java.util.List;
-
-=======
-
 import java.util.List;
 import java.util.Optional;
-
->>>>>>> db16d066e4e20781159bf021897ce179085fa0cb
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;

@@ -68,21 +68,19 @@ public class FeedbackController {
 	}
 	
 	//This method list all feedback from users
-	public String getFeedback_id(HttpServletRequest req, HttpServletResponse resp ) throws ServerException, IOException{
-		
-		List<Feedback> request = feedbackservice.getFeedback_id();
-		req.setAttribute("feedback", request);
-		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/viewfeedbackform.jsp");
-		try {
-			rd.forward(req, resp);
-		} catch (ServletException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	@GetMapping("/all")
+	public String getFeedback(){
 		return "viewfeedbackform";
-		
 	}
+	
+	//This method list all feedback from users
+		//@GetMapping("/feedback/all")
+//		public String getFeedback_id(HttpServletRequest req, HttpServletResponse resp ) throws ServerException, IOException{
+//			
+//			List<Feedback> request = feedbackservice.getFeedback_id();
+//			req.setAttribute("feedback", request);
+//			
+//			return "viewfeedbackform";
+//			
+//		}
 }

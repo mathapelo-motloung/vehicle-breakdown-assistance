@@ -32,9 +32,9 @@ public class HomePageController {
 		return "index";
 	}
 
-		User user = new User();
-		model.addAttribute("user", user);
-	}
+//		User user = new User();
+//		model.addAttribute("user", user);
+//	}
 	
 	@GetMapping("/login")
 	public String getLoginForm() {
@@ -65,18 +65,14 @@ public class HomePageController {
         return "loginform";
     }
 
-	@GetMapping("/viewuser")
-	public String getUsers(HttpServletRequest req) {
-		 HttpSession session=req.getSession();
-		 List<User> user = userService.getUserByRole(role);
-		 session.setAttribute("user", user);
-		return "searchlocationform";
-	
-	}
-
-	/*
-	 * T Mkhari This method populate the page with all user on the db
-	 */
+//	@GetMapping("/viewuser")
+//	public String getUsers(HttpServletRequest req) {
+//		 HttpSession session=req.getSession();
+//		 List<User> user = userService.getUserByRole(role);
+//		 session.setAttribute("user", user);
+//		return "searchlocationform";
+//	
+//	}
 	
 	@GetMapping("/searchlocation")
 	public String getMechanic(HttpServletRequest req) {

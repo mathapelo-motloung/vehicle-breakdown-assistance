@@ -62,11 +62,6 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 		</dependency>
-<<<<<<< HEAD
-
-		
-=======
->>>>>>> db16d066e4e20781159bf021897ce179085fa0cb
 	</dependencies>
 
 	<build>
