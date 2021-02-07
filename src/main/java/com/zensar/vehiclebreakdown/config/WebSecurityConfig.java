@@ -11,7 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.zensar.vehiclebreakdown.service.UserDetailsServiceImpl;
+
 
 @ComponentScan
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -19,15 +19,7 @@ import com.zensar.vehiclebreakdown.service.UserDetailsServiceImpl;
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
-	@Autowired
-	private UserDetailsServiceImpl userDetailsService;
 	
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		// TODO Auto-generated method stub
-		auth.userDetailsService(userDetailsService)
-		.passwordEncoder(getPasswordEncoder());
-	}
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -40,20 +32,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		       .formLogin().loginPage("/login").permitAll();
 	}
 	
-	private PasswordEncoder getPasswordEncoder() {
-     return new PasswordEncoder() {
-			
-			@Override
-			public boolean matches(CharSequence charSequence, String s) {
-				// TODO Auto-generated method stub
-				return true;
-			}
-			
-			@Override
-			public String encode(CharSequence charSequence) {
-				// TODO Auto-generated method stub
-				return charSequence.toString();
-			}
-		};
-	}
 }

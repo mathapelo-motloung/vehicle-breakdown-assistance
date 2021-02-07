@@ -40,8 +40,6 @@ public class UserService {
 	
 	//Find user by id
 	public Optional<User> findUserById(int id) {
-	//Method used to find mechanic for changing status from blocked to unblocked
-	public Optional<User> changeStatus(int id) {
 		return userDao.findById(id);
 
 	}

@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Cache;
@@ -20,17 +22,38 @@ public class Feedback {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int feeback_id;
 	private String description;
+	private String date;
 	
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 	
 	public Feedback() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Feedback(int feeback_id,  String description, Date date) {
+	public Feedback(int feeback_id,  String description, String date) {
 		super();
 		this.feeback_id = feeback_id;
 		this.description = description;
-		
+		this.date= date;
+	}
+	
+	
+	public String getDate() {
+		return date;
+	}
+	
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public int getFeeback_id() {
@@ -49,13 +72,12 @@ public class Feedback {
 		this.description = description;
 	}
 
-//	public Date getDate() {
-//		return date;
-//	}
-//
-//	public void setDate(Date date) {
-//		this.date = date;
-//	}
-//	
+	@Override
+	public String toString() {
+		return "Feedback [feeback_id=" + feeback_id + ", description=" + description + ", date=" + date + ", user="
+				+ user + "]";
+	}
+	
+	
 
 }

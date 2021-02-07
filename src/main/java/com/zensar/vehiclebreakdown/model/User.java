@@ -61,11 +61,7 @@ public class User {
 
 	
 	@OneToMany
-	@JoinTable(name = "user_feedback", joinColumns = {@JoinColumn(name = "user_id")},inverseJoinColumns = {@JoinColumn(name="feedback_id") })
 	private List<Feedback> feedbackMessages = new ArrayList<Feedback>();
-
-	
-
 
 	public User() {
 		super();
