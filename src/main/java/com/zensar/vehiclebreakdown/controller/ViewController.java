@@ -2,15 +2,13 @@ package com.zensar.vehiclebreakdown.controller;
 
 import java.net.URISyntaxException;
 import java.util.List;
-
 import java.util.Optional;
-
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,8 +26,7 @@ public class ViewController {
 	@Autowired
 	UserDao userDao;
 
-	
-	@PostMapping("admin/filteruser")
+	@PostMapping("filteruser")
 	public String getUser(@RequestParam("user_type") String userType, HttpServletRequest req)
 			throws URISyntaxException {
 		List<User> user = null;
@@ -40,23 +37,13 @@ public class ViewController {
 			user = userService.getUserByRole(userType);
 		} else if (userType.equalsIgnoreCase("all")) {
 			user = userService.getAll();
-		
 		}
 		
 		session.setAttribute("user", user);
 		return "viewuserform";
 	}
 
-	
-
-
-	/*
-	 * T Mkhari
-	 * This method changed the status of a mechanic from being block 
-	 * to being unblocked, and its only accessible to the admin
-	 */
-	
-	@RequestMapping(value = "admin/block", method = RequestMethod.POST)
+	@RequestMapping(value = "/block", method = RequestMethod.POST)
 	public String blockUser(@RequestParam(value="status",required=true) String status, HttpServletRequest req) {
 	
 		User newUser = null;
@@ -75,7 +62,7 @@ public class ViewController {
 		if(status.length() == 7) {
 			
 			//fetching the record from the db before updating it
-			OpUser = userService.changeStatus(id); 
+			OpUser = userService.findUserById(id); 
 			newUser = new User(id, OpUser.get().getFname(), OpUser.get().getLname(), OpUser.get().getUsertype(),
 					OpUser.get().getEmail(), OpUser.get().getCellno(), OpUser.get().getLocation(), OpUser.get().getUsername(),
 					OpUser.get().getPassword(), "NOT BLOCKED"); // changing the status of mechanic manually
@@ -83,7 +70,7 @@ public class ViewController {
 		}
 		 //check if current status of a mechanic is enable or disabled
 		else if(status.length() == 8){
-			OpUser2 = userService.changeStatus(id); //fetching the record from the db before updating it
+			OpUser2 = userService.findUserById(id); //fetching the record from the db before updating it
 			newUser2 = new User(id, OpUser2.get().getFname(), OpUser2.get().getLname(), OpUser2.get().getUsertype(),
 					OpUser2.get().getEmail(), OpUser2.get().getCellno(), OpUser2.get().getLocation(), OpUser2.get().getUsername(),
 					OpUser2.get().getPassword(), "BLOCKED"); // changing the status of mechanic manually
@@ -92,7 +79,4 @@ public class ViewController {
 		return "viewuserform";
 	}
 
-	
-	
-
-}
+	}
