@@ -12,11 +12,6 @@
 	<hr>
 	<h3>Welcome to the Vehicle Breakdown Assistance System</h3>
     <h3 align="right">You're logged in as ${sessionName} </h3>
-    
-    <!-- 
-	<a href="/register">Register</a>
-	<a href="/login">login</a>
-	 -->
-	 
+
 </body>
 </html>

@@ -1,9 +1,11 @@
 package com.zensar.vehiclebreakdown.controller;
 
+
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,26 +14,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.zensar.vehiclebreakdown.dao.UserDao;
+import com.zensar.vehiclebreakdown.model.Feedback;
 import com.zensar.vehiclebreakdown.model.User;
 import com.zensar.vehiclebreakdown.service.UserService;
 
 @Controller
 public class HomePageController {
-	@Autowired
-	UserService userService;
 	
 	@Autowired
 	UserDao userDao;
 	
+	@Autowired
+	UserService userService;
+
 	@GetMapping("/home")
 	public String getIndex() {
 		return "index";
 	}
+
 	
 	@GetMapping("/register")
 	public String getRegisterForm(Model model) {
 		User user = new User();
-		model.addAttribute("user",user);
+		model.addAttribute("user", user);
 		return "registerform";
 	}
 
@@ -51,6 +56,7 @@ public class HomePageController {
 		 session.setAttribute("user", user);
 		return "searchlocationform";
 	}
+
 	
 	@GetMapping("/login")
 	public String getLoginForm() {

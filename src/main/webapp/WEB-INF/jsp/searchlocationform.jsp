@@ -30,9 +30,10 @@ table, tr, td, th {
 </script>
 </head>
 <body>
-<jsp:include page="nav.jsp"></jsp:include>
+	<jsp:include page="nav.jsp"></jsp:include>
 	<h2>Search for Mechanics</h2>
 	<hr>
+
 <h3 align="right">You're logged in as ${sessionName} </h3>
 
 	<form action="filtersearch" method="post"
@@ -65,7 +66,7 @@ table, tr, td, th {
 					<td>Cell Number</td>
 					<td>Location</td>
 					<td>Username</td>
-					<td>Status</td>
+					
 					
 				</tr>
 
@@ -78,7 +79,7 @@ table, tr, td, th {
 						<td>${p.getCellno()}</td>
 						<td>${p.getLocation()}</td>
 						<td>${p.getUsername()}</td>
-						<td>${p.getStatus()}</td>
+					
 						
 					</tr>
 				</u:forEach>

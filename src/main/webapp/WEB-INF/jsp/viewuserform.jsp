@@ -22,8 +22,8 @@ table, th, td {
 </head>
 
 <body>
-	<jsp:include page="nav.jsp"></jsp:include>
-
+	
+<jsp:include page="nav.jsp"></jsp:include>
 <h2>View Users</h2>  
 
 <hr>
