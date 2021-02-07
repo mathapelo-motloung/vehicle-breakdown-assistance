@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,7 +37,6 @@ public class ViewController {
 			user = userService.getUserByRole(userType);
 		} else if (userType.equalsIgnoreCase("all")) {
 			user = userService.getAll();
-		
 		}
 		
 		session.setAttribute("user", user);

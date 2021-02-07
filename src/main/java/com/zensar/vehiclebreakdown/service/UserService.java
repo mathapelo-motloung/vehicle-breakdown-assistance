@@ -23,7 +23,6 @@ public class UserService {
 	public User addUser(@RequestBody User user) {
 		return userDao.save(user);
 	}
-
 	
 	public List<User> getMechanicByLocation(String location) {
 		return userDao.findByLocation(location);

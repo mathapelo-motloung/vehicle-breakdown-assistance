@@ -12,7 +12,6 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
 
-
 @Entity(name = "users")
 @Table(name="users")
 
@@ -51,7 +50,6 @@ public class User {
 
 	@OneToMany
 	private List<Feedback> feedbackMessages = new ArrayList<Feedback>();
-
 
 	public User() {
 		super();

@@ -36,6 +36,13 @@ public class HomePageController {
 //		model.addAttribute("user", user);
 //	}
 	
+	@GetMapping("/register")
+	public String getRegisterForm(Model model) {
+		User user = new User();
+		model.addAttribute("user", user);
+		return "registerform";
+	}
+	
 	@GetMapping("/login")
 	public String getLoginForm() {
 		return "loginform";
@@ -65,14 +72,14 @@ public class HomePageController {
         return "loginform";
     }
 
-//	@GetMapping("/viewuser")
-//	public String getUsers(HttpServletRequest req) {
-//		 HttpSession session=req.getSession();
-//		 List<User> user = userService.getUserByRole(role);
-//		 session.setAttribute("user", user);
-//		return "searchlocationform";
-//	
-//	}
+	@GetMapping("/viewuser")
+	public String getUsers(HttpServletRequest req) {
+		 HttpSession session=req.getSession();
+		 List<User> user = userService.getAll();
+		 session.setAttribute("user", user);
+		return "viewuserform";
+	}
+
 	
 	@GetMapping("/searchlocation")
 	public String getMechanic(HttpServletRequest req) {
