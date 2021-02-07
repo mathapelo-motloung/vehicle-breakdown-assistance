@@ -14,9 +14,9 @@ import com.zensar.vehiclebreakdown.model.User;
 public interface UserDao extends CrudRepository<User, Integer> {
 
 	
-	public User findByUsername(@Param("username") String username);
+	public User findByUsername(String username);
 
-	public User findByPassword(@Param("password") String password);
+	public User findByPassword(String password);
 
 
 	public List<User> findByUsertype(String role);

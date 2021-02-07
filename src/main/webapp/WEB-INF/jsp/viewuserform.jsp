@@ -80,7 +80,8 @@ table, th, td {
 						<td><u:if test="${p.getStatus().equals('BLOCKED')}">
 								<input type="submit" name="status"
 									value="enable${p.getUser_id()}" />
-							</u:if> <u:if test="${p.getStatus().equals('NOT BLOCKED')}">
+							</u:if> 
+							<u:if test="${p.getStatus().equals('NOT BLOCKED')}">
 								<input type="submit" name="status"
 									value="disable${p.getUser_id()}" />
 							</u:if></td>

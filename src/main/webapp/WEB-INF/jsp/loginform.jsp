@@ -6,18 +6,18 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<script>
-function validate(frm){
-	if(frm.login.value == ""){
-		alert('Login name is required... ');
-		return false;
+	<script>
+	function validate(frm){
+		if(frm.login.value == " "){
+			alert('Login name is required... ');
+			return false;
+		}
+		if(frm.password.value == " "){
+			alert('Password is required... ');
+			return false;
+		}
+		return true;
 	}
-	if(frm.password.value ==""){
-		alert('Password is required... ');
-		return false;
-	}
-	return true;
-}
 </script>
 </head>
 <body>
@@ -41,7 +41,7 @@ function validate(frm){
 			</tr>
 			<tr>
 				 <td></td> 
-				<td><p> New user? <a href="/register">Register here</a></p></td>
+				<td><p> New user? <a href="/register/all">Register here</a></p></td>
 			</tr>
 		</table>
 
