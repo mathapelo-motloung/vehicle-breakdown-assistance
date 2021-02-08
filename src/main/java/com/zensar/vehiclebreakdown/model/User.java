@@ -1,8 +1,8 @@
 package com.zensar.vehiclebreakdown.model;
 
-import javax.persistence.Column;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -51,6 +51,9 @@ public class User {
 	@OneToMany
 	private List<Feedback> feedbackMessages = new ArrayList<Feedback>();
 
+	@OneToMany
+	private List<Request> requests = new ArrayList<Request>();
+	
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -149,6 +152,15 @@ public class User {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	
+	public List<Request> getRequests() {
+		return requests;
+	}
+
+	public void setRequests(List<Request> requests) {
+		this.requests = requests;
 	}
 
 	@Override
