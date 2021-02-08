@@ -27,7 +27,6 @@ public class Request {
 	private int request_id;
 	private String description;
 	private String date;
-	
 	private int mechanic_id;
 	
 

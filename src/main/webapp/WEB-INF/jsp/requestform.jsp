@@ -25,14 +25,11 @@
 <form:form action="addRequest" method="post" modelAttribute="requestform">
 		<table>
 		<tr>
-			<td><input type="text" name="user_id" value="<%=request.getParameter("mechanicId")%>"></td>
+			<td><input type="hidden" name="mechanic_id" value="<%=request.getParameter("mechanicId")%>"></td>
 		</tr>
 			<tr>
 				<td><label>Request Description</label></td>
-				<td><textarea name="description" id="description" rows="4" cols="50">
-					
-				</textarea></td>
-				
+				<td><textarea name="description" id="description" rows="4" cols="50"></textarea></td>
 			</tr>
 			<tr>
 				<td></td>
