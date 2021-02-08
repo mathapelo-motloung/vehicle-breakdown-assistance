@@ -63,22 +63,18 @@ table, tr, td, th {
 					<td>Email Address</td>
 					<td>Cell Number</td>
 					<td>Location</td>
-					<td>Username</td>
-					
-					
+					<td>Username</td>	
+					<td></td>	
 				</tr>
-
 				<u:forEach items="${user}" var="p">
 					<tr>
-
 						<td>${p.getFname()}</td>
 						<td>${p.getLname()}</td>
 						<td>${p.getEmail()}</td>
 						<td>${p.getCellno()}</td>
 						<td>${p.getLocation()}</td>
 						<td>${p.getUsername()}</td>
-					
-						
+						<td><a href="/makerequest?mechanicId=${p.getUser_id()}">Send Request</a></td>
 					</tr>
 				</u:forEach>
 			</table>

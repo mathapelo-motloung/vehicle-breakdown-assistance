@@ -41,9 +41,10 @@ public class UserService {
 		return userDao.findById(id);
 
 	}
+	
+	//method used for saving changes after a mechani has been blocked or unblocked
 
-	//method used for saving changes after a mechanic has been blocked or unblocked
-	public User saveUser(User user) {
+	public User saveUser(@RequestBody User user) {
 		return userDao.save(user);
 	}
 	
