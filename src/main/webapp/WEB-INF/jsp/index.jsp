@@ -7,11 +7,12 @@
 <title>Vehicle Breakdown Assistance</title>
 </head>
 <body>
-	<jsp:include page="nav.jsp"></jsp:include>
-	<h3>Home Page</h3>
+	
+	<h3>Home</h3>
 	<hr>
+	<jsp:include page="nav.jsp"></jsp:include>
 	<h3>Welcome to the Vehicle Breakdown Assistance System</h3>
-    <h3 align="right">You're logged in as ${sessionName} </h3>
+    
 
 </body>
 </html>
