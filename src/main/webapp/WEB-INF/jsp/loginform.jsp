@@ -41,7 +41,9 @@
 			</tr>
 			<tr>
 				 <td></td> 
-				<td><p> New user? <a href="/register/all">Register here</a></p></td>
+
+				<td><p> New user? <a href="/register">Register here</a></p></td>
+
 			</tr>
 		</table>
 
