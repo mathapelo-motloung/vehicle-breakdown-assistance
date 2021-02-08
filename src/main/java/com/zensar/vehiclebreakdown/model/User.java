@@ -1,27 +1,18 @@
 package com.zensar.vehiclebreakdown.model;
 
-import javax.persistence.Column;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.persistence.Cacheable;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
-
-
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import javax.persistence.JoinColumn;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.annotations.Cache;
 
 @Entity(name = "users")
 @Table(name="users")
@@ -59,10 +50,12 @@ public class User {
 
 	private String status;
 
-	
 	@OneToMany
 	private List<Feedback> feedbackMessages = new ArrayList<Feedback>();
 
+	@OneToMany
+	private List<Request> requests = new ArrayList<Request>();
+	
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -161,6 +154,15 @@ public class User {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	
+	public List<Request> getRequests() {
+		return requests;
+	}
+
+	public void setRequests(List<Request> requests) {
+		this.requests = requests;
 	}
 
 	@Override

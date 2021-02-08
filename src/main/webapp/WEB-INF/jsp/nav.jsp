@@ -9,7 +9,7 @@
 	  	</c:when>
 	  	<c:when test="${userSession.getUsertype() == 'ROLE_USER'}">
 			<th><a href="/searchlocation">Search Location</a></th>
-			<th><a href="####">Send Request</a></th>
+			<th><a href="/makerequest">Send Request</a></th>
 			<th><a href="/feedback">Send Feedback</a></th>
 			<th><a href="/login">Logout</a></th>
 	  	</c:when>
