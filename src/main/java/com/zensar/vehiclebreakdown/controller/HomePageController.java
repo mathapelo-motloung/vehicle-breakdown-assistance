@@ -32,7 +32,6 @@ public class HomePageController {
 		return "index";
 	}
 
-	
 	@GetMapping("/register")
 	public String getRegisterForm(Model model) {
 		User user = new User();
@@ -57,6 +56,10 @@ public class HomePageController {
 		return "searchlocationform";
 	}
 
+	@GetMapping("/logout")
+	public String getLogoutForm() {
+		return "logoutform";
+	}
 	
 	@GetMapping("/login")
 	public String getLoginForm() {
