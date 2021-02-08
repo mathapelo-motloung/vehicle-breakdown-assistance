@@ -62,7 +62,7 @@ public class HomePageController {
 	public String getLoginForm() {
 		return "loginform";
 	}
-	
+	//2
 	@PostMapping("/login.do")
 	public String loginUser(@RequestParam("username") String username, @RequestParam("password") String password,
 			HttpServletRequest req) {

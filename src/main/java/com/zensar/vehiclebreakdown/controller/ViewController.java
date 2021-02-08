@@ -43,6 +43,7 @@ public class ViewController {
 		return "viewuserform";
 	}
 	
+	//1
 	@RequestMapping(value = "block", method = RequestMethod.POST)
 	public String blockUser(@RequestParam(value="status",required=true) String status, 
 			@RequestParam(value="id",required=true) int id) {

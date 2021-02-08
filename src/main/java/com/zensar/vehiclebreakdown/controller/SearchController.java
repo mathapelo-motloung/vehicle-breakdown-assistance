@@ -21,13 +21,16 @@ public class SearchController {
 	@Autowired
 	UserDao userDao;
 
-	@PostMapping("filtersearch")
-	public String getMechanic(@RequestParam("location") String location, HttpServletRequest req) {
+	
+	@PostMapping("/filtersearch")
+	public String getMechanic(@RequestParam("location") String location, HttpServletRequest req)
+			throws URISyntaxException {
+
 		List<User> user = null;
 		String role = "ROLE_MECHANIC";
 
 		HttpSession session = req.getSession();
-		user = userService.getMechanicByLocation(location);
+		user = userService.getUserByLocRole(location, role);
 		session.setAttribute("user", user);
 		return "searchlocationform";
 	}

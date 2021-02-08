@@ -1,0 +1,20 @@
+* {
+	margin: 10px;
+	font-family: Arial;
+	font-size: 16px;
+}
+
+.clist {
+	border: 1px solid grey;
+	width: 600px;
+	padding: 2px;
+	border-collapse: collapse;
+	margin-left: 20px;
+}
+
+.col {
+	border: 1px solid ;
+	padding: 5px;
+	text-align: center;
+	border-collapse: collapse;
+}
