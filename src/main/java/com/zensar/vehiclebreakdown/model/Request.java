@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -13,9 +14,13 @@ import javax.persistence.Id;
 //import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.ManyToAny;
+
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.JoinColumn;
 
 @Entity(name="request")
@@ -29,6 +34,9 @@ public class Request {
 	private String date;
 	private int mechanic_id;
 	
+	@ManyToMany
+	private List<User> users = new ArrayList<User>();
+	
 
 	public int getRequest_id() {
 		return request_id;
@@ -37,6 +45,13 @@ public class Request {
 		this.request_id = request_id;
 	}
 	
+
+	public List<User> getUsers() {
+		return users;
+	}
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
 	public String getDescription() {
 		return description;
 	}

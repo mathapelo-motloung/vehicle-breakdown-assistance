@@ -65,14 +65,15 @@ public class RequestController {
 		}else {
 			
 			HttpSession session = req.getSession();
-			//User user = (User) session.getAttribute("userSession");
-		
+			List<User> usr = new ArrayList<User>();
+			User user = (User) session.getAttribute("userSession");
+			usr.add(user);
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 	        LocalDateTime now = LocalDateTime.now();
 			String date=dtf.format(now);
 			
 			request.setDate(date);
-			//request.setUsers(user);
+			request.setUsers(usr);
 			
 			requestService.addRequest(request);
 			return ResponseEntity.ok("Request made successful.");		
