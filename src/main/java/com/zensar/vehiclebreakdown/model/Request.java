@@ -25,13 +25,13 @@ public class Request {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int request_id;
-//	private int user_id;
+	private int user_id;
 	private String description;
 	private Date date;
 
 //	@OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 //    @JoinColumn(name = "user_id",referencedColumnName = "user_id")
-	private User users ;
+	//private User users ;
 	
 
 	public Request(int user_id, String description, Date date, User users) {
@@ -39,7 +39,7 @@ public class Request {
 		
 		this.description = description;
 		this.date = date;
-		this.users = users;
+		//this.users = users;
 	}
 	public Request() {
 		super();
@@ -50,12 +50,12 @@ public class Request {
 	public void setRequest_id(int request_id) {
 		this.request_id = request_id;
 	}
-//	public int getUser_id() {
-//		return user_id;
-//	}
-//	public void setUser_id(int user_id) {
-//		this.user_id = user_id;
-//	}
+	public int getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
 	public String getDescription() {
 		return description;
 	}
@@ -69,12 +69,12 @@ public class Request {
 		this.date = date;
 	}
 
-	public User getUsers() {
-		return users;
-	}
-
-	public void setUsers(User users) {
-		this.users = users;
-	}
-	
+//	public User getUsers() {
+//		return users;
+//	}
+//
+//	public void setUsers(User users) {
+//		this.users = users;
+//	}
+//	
 }

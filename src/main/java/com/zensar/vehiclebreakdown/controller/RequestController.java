@@ -48,7 +48,7 @@ public class RequestController {
 				user.getCellno(),user.getLocation(),user.getUsername(),user.getPassword(),user.getStatus());
 		
 		Request re=new Request();
-		re.setUsers(us);
+		//re.setUsers(us);
 		System.out.println("*****************");
 		
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");

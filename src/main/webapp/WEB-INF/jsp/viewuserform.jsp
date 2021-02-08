@@ -1,10 +1,16 @@
 <%@page import="java.util.List"%>
 <%@page import="com.zensar.vehiclebreakdown.model.User"%>
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
+<<<<<<< HEAD
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
+=======
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"%>
+>>>>>>> 9d3350d2300a0a7963cb848da7789d4718e565dd
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="u"%>
 <!DOCTYPE html>
 <html>
@@ -12,18 +18,19 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 
- <style>
-      table,
-      th,
-      td {
-        padding: 10px;
-        border: 1px solid black;
-        border-collapse: collapse;
-      }
-    </style>
+<style>
+table, th, td {
 
+	padding: 10px;
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+</style>
 </head>
+
 <body>
+	
+
 <h2>View Users</h2>
 <hr>
 
@@ -35,18 +42,18 @@
 			<tr>
 				<td><label>Filter Users</label></td>
 				<td><select id="roles" name="user_type">
-						<option value="user">User</option>
-						<option value="mechanic">Mechanic</option>
+						<option value="ROLE_USER">User</option>
+						<option value="ROLE_MECHANIC">Mechanic</option>
 						<option value="all">All</option>
 				</select></td>
 			</tr>
 			<tr>
-				<td></td>
+				
 				<td><input type="submit" name="filter" value="submit"></td>
 			</tr>
 		</div>
 	</form>
-	
+
 	<div style="margin-top:25px;"></div>
 	
 	<form form action="filteruser" method="post">

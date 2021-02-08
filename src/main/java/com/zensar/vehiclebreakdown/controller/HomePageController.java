@@ -1,16 +1,14 @@
 package com.zensar.vehiclebreakdown.controller;
 
-import java.util.List;
 
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import com.zensar.vehiclebreakdown.dao.UserDao;
 import com.zensar.vehiclebreakdown.model.User;
 import com.zensar.vehiclebreakdown.service.UserService;
 
@@ -18,16 +16,19 @@ import com.zensar.vehiclebreakdown.service.UserService;
 public class HomePageController {
 	@Autowired
 	UserService userService;
-	
+
+	@Autowired
+	UserDao userDao;
+
 	@GetMapping("/home")
 	public String getIndex() {
 		return "index";
 	}
-	
-	@GetMapping("/register")
+
+	@GetMapping("/register/all")
 	public String getRegisterForm(Model model) {
 		User user = new User();
-		model.addAttribute("user",user);
+		model.addAttribute("user", user);
 		return "registerform";
 	}
 	@GetMapping("/requestform")
@@ -40,18 +41,33 @@ public class HomePageController {
 	
 	
 	
-	//This method populate the page with all user on the db
-	@GetMapping("/viewuser")
-	public String getUsers(HttpServletRequest req) {
+	@GetMapping("/user/searchlocation")
+	public String getMechanic(HttpServletRequest req) {
+		String role = "ROLE_MECHANIC";
 		 HttpSession session=req.getSession();
-		 List<User> user = userService.getAll();
+		 List<User> user = userService.getUserByRole(role);
 		 session.setAttribute("user", user);
+		return "searchlocationform";
+	
+	}
+
+	/*
+	 * T Mkhari This method populate the page with all user on the db
+	 */
+	
+	@GetMapping("/admin/viewuser")
+	public String getUsers(HttpServletRequest req) {
+		HttpSession session = req.getSession();
+		List<User> user = userService.getAll();
+		session.setAttribute("user", user);
 		return "viewuserform";
 	}
-	
-	@GetMapping("/login")
+
+	@GetMapping("/login/all")
 	public String getLoginForm() {
 		return "loginform";
 	}
+
+	
 
 }
