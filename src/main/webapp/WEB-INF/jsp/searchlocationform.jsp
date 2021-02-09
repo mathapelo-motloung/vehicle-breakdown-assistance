@@ -40,7 +40,7 @@ table, tr, td, th {
 	<form action="filtersearch" method="post"
 		onsubmit="return validate(this);">
 <div>
-			Search <input list="locations" name="location"> *
+			Search <input list="locations" value= "Type location"name="location"> *
 			<button>Go</button>
 
 			<datalist id="location">
