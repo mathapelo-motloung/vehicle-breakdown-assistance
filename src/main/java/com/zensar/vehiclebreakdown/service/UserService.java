@@ -24,10 +24,6 @@ public class UserService {
 		return userDao.save(user);
 	}
 	
-	public List<User> getMechanicByLocation(String location) {
-		return userDao.findByLocation(location);
-	}
-
 	//Method that finds a record base on the attribute userType
 	public List<User> getUserByRole(String role){
 		return userDao.findByUsertype(role);	
@@ -41,17 +37,14 @@ public class UserService {
 	//Find user by id
 	public Optional<User> findUserById(int id) {
 		return userDao.findById(id);
-
 	}
 	
-	//method used for saving changes after a mechani has been blocked or unblocked
-
+	//add user
 	public User saveUser(@RequestBody User user) {
 		return userDao.save(user);
 	}
-	
-	public List<User> getUserByLocRole(String location, String role){
 		
+	public List<User> getUserByLocRole(String location,String role){
 		return userDao.findByLocationRole(location, role);
 	}
 

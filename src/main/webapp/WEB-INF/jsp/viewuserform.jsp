@@ -28,6 +28,7 @@ table, th, td {
 <hr>
 <h3 align="right">You're logged in as ${sessionName} </h3>
 <jsp:include page="nav.jsp"></jsp:include>
+<br>
 
 	 
 	<form action="filteruser" method="post">

@@ -54,7 +54,18 @@ public class RequestController {
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/viewrequest.jsp");
 		rd.forward(req, resp);
 		return "viewrequest";
+	}
+	
+	@GetMapping("/filterrequest")
+	public String getMechanicReq(HttpServletRequest req) {
 		
+		HttpSession session = req.getSession();
+		User user = (User) session.getAttribute("userSession");
+	    int userId = user.getUser_id();
+	    List<Request> request =	requestService.getRequest(userId);
+	    session.setAttribute("request", request);		
+	    
+		return "viewrequest";
 	}
 	
 	@PostMapping("/addRequest")

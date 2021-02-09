@@ -1,6 +1,4 @@
 package com.zensar.vehiclebreakdown.controller;
-
-
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -34,6 +32,7 @@ public class HomePageController {
 		model.addAttribute("user", user);
 		return "registerform";
 	}
+
 
 	@GetMapping("/viewuser")
 	public String getUsers(HttpServletRequest req) {

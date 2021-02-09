@@ -6,7 +6,6 @@ import java.util.Optional;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,6 +25,7 @@ public class ViewController {
 	@Autowired
 	UserDao userDao;
 
+
 	@PostMapping("filteruser")
 	public String getUser(@RequestParam("user_type") String userType, HttpServletRequest req)
 			throws URISyntaxException {
@@ -42,8 +42,7 @@ public class ViewController {
 		session.setAttribute("user", user);
 		return "viewuserform";
 	}
-	
-	//1
+
 	@RequestMapping(value = "block", method = RequestMethod.POST)
 	public String blockUser(@RequestParam(value="status",required=true) String status, 
 			@RequestParam(value="id",required=true) int id) {

@@ -11,11 +11,9 @@
 <title>Insert title here</title>
 <style>
 table, tr, td, th {
-	border: 1px solid grey;
-	border-collapse: collapse;
-	width: 600px;
 	padding: 10px;
-	font-size: 20px;
+	border: 1px solid black;
+	border-collapse: collapse;
 }
 
 </style>
@@ -35,6 +33,7 @@ table, tr, td, th {
 	<hr>
 	<h3 align="right">You're logged in as ${sessionName} </h3>
 	<jsp:include page="nav.jsp"></jsp:include>
+	<br>
 
 
 

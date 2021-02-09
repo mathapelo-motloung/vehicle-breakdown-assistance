@@ -11,12 +11,21 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<style type="text/css">
+	table, th, td {
+	padding: 10px;
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+</style>
+
 </head>
 <body>
 	<h2>Feedback</h2>
 	<hr>
 	<h3 align="right">You're logged in as ${sessionName} </h3>
 	<jsp:include page="nav.jsp"></jsp:include>
+	<br>
 
 	<form:form action="sendfeedback" method="post" modelAttribute="feedback" >
 		<table>
