@@ -21,7 +21,7 @@
 	<!-- SHOWCASE -->
 	<section class="showcase">
 		<div class="w3-container w3-center">
-			<h1 class="w3-text-shadow w3-animate-opacity">Go Anywhere</h1>
+			<h1 class="w3-text-shadow w3-animate-opacity">Welcome</h1>
 			<hr>
 			<p class="w3-animate-opacity">Desde el 23 de noviembre de 2020
 				todo pasajero mayor de seis años de edad procedente de Francia que
@@ -39,6 +39,9 @@
 		<div class="w3-container w3-center">
 			<i class="fa fa-home"></i>
 			<h2>Welcome Home</h2>
+			<p>Desde el 23 de noviembre de 2020
+				todo pasajero mayor de seis años de edad procedente de Francia que
+				pretenda entrar en España por vía aérea o marítima deberá disponer</p>
 		</div>
 	</section>
 
@@ -47,8 +50,18 @@
 		<div class="w3-container w3-center">
 			<i class="fa fa-cog"></i>
 			<h2>Let's Begin</h2>
+			<p>Desde el 23 de noviembre de 2020
+				todo pasajero mayor de seis años de edad procedente de Francia que
+				pretenda entrar en España por vía aérea o marítima deberá disponer</p>
 		</div>
 	</section>
+	
+	
+	<!-- FOOTER  -->
+	<footer class="w3-black w3-padding-xlarge w3-center">
+
+	<p>Vehicle Breakdown Assistance &copy; 2021</p>
+	</footer>
 
 </body>
 </html>
