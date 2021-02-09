@@ -23,8 +23,8 @@
 <body>
 
 	<h2>Login</h2>
-
 	<hr>
+	
 	<form action="login.do" method="post" onsubmit="return validate(this);">
 		<table>
 			<tr>

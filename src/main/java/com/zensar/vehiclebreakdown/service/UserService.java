@@ -54,7 +54,5 @@ public class UserService {
 		
 		return userDao.findByLocationRole(location, role);
 	}
-	
-
 
 }
