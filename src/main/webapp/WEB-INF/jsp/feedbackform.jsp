@@ -21,10 +21,11 @@
 
 </head>
 <body>
+<jsp:include page="nav.jsp"></jsp:include>
 	<h2>Feedback</h2>
 	<hr>
 	<h3 align="right">You're logged in as ${sessionName} </h3>
-	<jsp:include page="nav.jsp"></jsp:include>
+	
 	<br>
 
 	<form:form action="sendfeedback" method="post" modelAttribute="feedback" name ="feedbackForm" onsubmit="return fValidate();">

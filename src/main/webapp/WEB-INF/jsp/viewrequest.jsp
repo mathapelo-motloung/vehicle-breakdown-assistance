@@ -20,10 +20,11 @@ table, th, td {
 </style>
 </head>
 <body>
+<jsp:include page="nav.jsp"></jsp:include>
 	<h2>View Request</h2>
 	<hr>
 	<h3 align="right">You're logged in as ${sessionName} </h3>
-	<jsp:include page="nav.jsp"></jsp:include>
+	
 	<div style="margin-top: 25px;"></div>
 	<form action="filterrequest" method="post">
 		<div>

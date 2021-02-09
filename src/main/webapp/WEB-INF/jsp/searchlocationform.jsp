@@ -28,11 +28,11 @@ table, tr, td, th {
 </script>
 </head>
 <body>
-	
+		<jsp:include page="nav.jsp"></jsp:include>
 	<h2>Search for Mechanics</h2>
 	<hr>
 	<h3 align="right">You're logged in as ${sessionName} </h3>
-	<jsp:include page="nav.jsp"></jsp:include>
+
 	<br>
 
 
@@ -40,7 +40,7 @@ table, tr, td, th {
 	<form action="filtersearch" method="post"
 		onsubmit="return validate(this);">
 <div>
-			Search <input list="locations" name="location"> *
+			Search <input list="locations" value= "Type location"name="location"> *
 			<button>Go</button>
 
 			<datalist id="location">
