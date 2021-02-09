@@ -21,7 +21,7 @@
 	<!-- SHOWCASE -->
 	<section class="showcase">
 		<div class="w3-container w3-center">
-			<h1 class="w3-text-shadow w3-animate-opacity">Welcome</h1>
+			<h1 class="w3-text-shadow w3-animate-opacity">Anywhere We Go</h1>
 			<hr>
 			<p class="w3-animate-opacity">Desde el 23 de noviembre de 2020
 				todo pasajero mayor de seis años de edad procedente de Francia que
