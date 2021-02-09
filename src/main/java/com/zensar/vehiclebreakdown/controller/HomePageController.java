@@ -5,7 +5,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.zensar.vehiclebreakdown.dao.UserDao;
-import com.zensar.vehiclebreakdown.model.Feedback;
 import com.zensar.vehiclebreakdown.model.User;
 import com.zensar.vehiclebreakdown.service.UserService;
 
@@ -31,7 +29,6 @@ public class HomePageController {
 	public String getIndex() {
 		return "index";
 	}
-
 	
 	@GetMapping("/register")
 	public String getRegisterForm(Model model) {
@@ -57,7 +54,6 @@ public class HomePageController {
 		return "searchlocationform";
 	}
 
-	
 	@GetMapping("/login")
 	public String getLoginForm() {
 		return "loginform";
@@ -86,5 +82,10 @@ public class HomePageController {
 			System.out.println("User could not be identified: "+ e);
 		}
 		return "loginform";
+	}
+	
+	@GetMapping("/viewrequest")
+	public String requests() {
+		return "viewrequest";
 	}
 }
