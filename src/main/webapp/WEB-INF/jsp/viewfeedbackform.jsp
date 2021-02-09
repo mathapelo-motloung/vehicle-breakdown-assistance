@@ -21,10 +21,10 @@ table, th, td {
 
 </head>
 <body>
+<jsp:include page="nav.jsp"></jsp:include>
 	<h2>View Feedback</h2>
 	<hr>
 	<h3 align="right">You're logged in as ${sessionName} </h3>
-	<jsp:include page="nav.jsp"></jsp:include>
 	<br>
 	
 		<div>
