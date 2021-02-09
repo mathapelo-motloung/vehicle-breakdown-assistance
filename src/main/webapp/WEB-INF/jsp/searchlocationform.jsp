@@ -11,11 +11,9 @@
 <title>Insert title here</title>
 <style>
 table, tr, td, th {
-	border: 1px solid grey;
-	border-collapse: collapse;
-	width: 600px;
 	padding: 10px;
-	font-size: 20px;
+	border: 1px solid black;
+	border-collapse: collapse;
 }
 
 </style>
@@ -30,14 +28,19 @@ table, tr, td, th {
 </script>
 </head>
 <body>
-
+		<jsp:include page="nav.jsp"></jsp:include>
 	<h2>Search for Mechanics</h2>
 	<hr>
-	
+	<h3 align="right">You're logged in as ${sessionName} </h3>
+
+	<br>
+
+
+
 	<form action="filtersearch" method="post"
 		onsubmit="return validate(this);">
 <div>
-			Search <input list="locations" name="location"> *
+			Search <input list="locations" value= "Type location"name="location"> *
 			<button>Go</button>
 
 			<datalist id="location">

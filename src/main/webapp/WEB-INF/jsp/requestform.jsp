@@ -17,9 +17,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="nav.jsp"></jsp:include>
 <h2>Request form</h2>
 <hr>
-
+<h3 align="right">You're logged in as ${sessionName} </h3>
 
 
 <form:form action="addRequest" method="post" modelAttribute="requestform">
@@ -27,12 +28,13 @@
 		<tr>
 			<td><input type="hidden" name="mechanic_id" value="<%=request.getParameter("mechanicId")%>"></td>
 		</tr>
+		<tr>
+			<td><label>Request Description</label></td>
+		</tr>
 			<tr>
-				<td><label>Request Description</label></td>
 				<td><textarea name="description" id="description" rows="4" cols="50"></textarea></td>
 			</tr>
 			<tr>
-				<td></td>
 				<td><input type ="submit" name="makerequest" value="submit"></td>
 			</tr>
 	

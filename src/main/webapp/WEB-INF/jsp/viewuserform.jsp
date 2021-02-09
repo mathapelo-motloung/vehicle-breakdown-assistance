@@ -23,10 +23,14 @@ table, th, td {
 
 <body>
 	
-
-<h2>View Users</h2>
+<jsp:include page="nav.jsp"></jsp:include>
+<h2>View Users</h2>  
 <hr>
+<h3 align="right">You're logged in as ${sessionName} </h3>
 
+<br>
+
+	 
 	<form action="filteruser" method="post">
 		<div>
 			<tr>
@@ -46,7 +50,7 @@ table, th, td {
 
 	<div style="margin-top: 25px;"></div>
 
-	<form action="block" method="post">
+	
 		<div>
 			<table>
 				<tr>
@@ -64,7 +68,8 @@ table, th, td {
 				</tr>
 
 				<u:forEach items="${user}" var="p">
-					<tr>
+					<form action="block" method="post">
+					<tr>	
 						<td>${p.getUser_id()}<input type="hidden" name="id"
 							value="${p.getUser_id()}" /></td>
 						<td>${p.getFname()}<input type="hidden" name="fname"
@@ -77,21 +82,21 @@ table, th, td {
 						<td>${p.getUsername()}</td>
 						<td>${p.getPassword()}</td>
 						<td>${p.getStatus()}</td>
-						<td><u:if test="${p.getStatus().equals('BLOCKED')}">
+						<td>
+						<u:if test="${p.getStatus().equals('BLOCKED')}">
 								<input type="submit" name="status"
-									value="enable${p.getUser_id()}" />
+									value="enable" />
 							</u:if> 
 							<u:if test="${p.getStatus().equals('NOT BLOCKED')}">
 								<input type="submit" name="status"
-									value="disable${p.getUser_id()}" />
-							</u:if></td>
+									value="disable" />	
+						</u:if>
+						</td>
 					</tr>
+					</form>
 				</u:forEach>
 			</table>
 		</div>
-	
-	</form>
-
 	
 </body>
 </html>

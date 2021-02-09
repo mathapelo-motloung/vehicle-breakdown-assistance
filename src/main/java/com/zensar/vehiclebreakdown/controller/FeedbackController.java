@@ -10,11 +10,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.zensar.vehiclebreakdown.dao.UserDao;
@@ -41,21 +44,26 @@ public class FeedbackController {
 	
 	
 	@PostMapping("/sendfeedback")
-	public ResponseEntity<String> saveFeedback(Feedback feedback, Model model, HttpServletRequest req){
+	public ResponseEntity<String> saveFeedback(@Valid Feedback feedback,Model model,BindingResult bindingResult, HttpServletRequest req){
+		model.addAttribute("feedback",feedback);
 		
-		HttpSession session = req.getSession();
-		User user = (User) session.getAttribute("userSession");
-		System.err.println(user);
-	
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
-		String date=dtf.format(now);
-		
-		feedback.setDate(date);
-		feedback.setUser(user);
-		
-		feedbackservice.addFeedback(feedback);
-		return ResponseEntity.ok("Feedback added successfully");
+		if (bindingResult.hasErrors()) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+	               .body("All fields required.Make sure your input is valid.");
+		}else {
+			HttpSession session = req.getSession();
+			User user = (User) session.getAttribute("userSession");
+			
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+	        LocalDateTime now = LocalDateTime.now();
+			String date=dtf.format(now);
+			
+			feedback.setDate(date);
+			feedback.setUser(user);
+			
+			feedbackservice.addFeedback(feedback);
+			return ResponseEntity.ok("Feedback added successfully");
+		}
 	}
 
 	
