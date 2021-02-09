@@ -54,7 +54,6 @@ public class RequestController {
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/viewrequest.jsp");
 		rd.forward(req, resp);
 		return "viewrequest";
-		
 	}
 	
 	@PostMapping("/addRequest")

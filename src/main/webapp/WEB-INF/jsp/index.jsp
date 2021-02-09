@@ -5,6 +5,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vehicle Breakdown Assistance</title>
 </head>
 <body>
@@ -12,8 +14,5 @@
 	<hr>
 	<jsp:include page="nav.jsp"></jsp:include>
 	<h3>Welcome to the Vehicle Breakdown Assistance System</h3>
-    
-  
-
 </body>
 </html>

@@ -1,3 +1,5 @@
+
+
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <table>
 	<tr>
@@ -13,8 +15,9 @@
 			<th><a href="/login">Logout</a></th>
 	  	</c:when>
 	  	<c:when test="${userSession.getUsertype() == 'ROLE_MECHANIC'}">
-	    	<th><a href="feedback">Send Feedback</a></th>
-			<th><a href="/logout">Logout</a></th>
+	    	<th><a href="/feedback">Send Feedback</a></th>
+	    	<th><a href="/filterrequest">View Requests</a></th>
+			<th><a href="/login">Logout</a></th>
 	  	</c:when>
 	  	<c:otherwise>
 			<th><a href="/register">Register</a></th>
@@ -23,3 +26,4 @@
 	</c:choose>
 	</tr>
 </table>
+
