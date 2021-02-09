@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import javax.persistence.EntityManagerFactory;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +17,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -54,10 +57,8 @@ public class RequestController {
 		
 	}
 	
-
-	
 	@PostMapping("/addRequest")
-	public ResponseEntity<String> createRequest(@Valid Request request, BindingResult bindingResult,Model model,HttpServletRequest req) throws IOException {
+	public ResponseEntity<String> createRequest(@Valid Request request, BindingResult bindingResult,HttpServletRequest req) {
 		 
 		if (bindingResult.hasErrors()) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST)

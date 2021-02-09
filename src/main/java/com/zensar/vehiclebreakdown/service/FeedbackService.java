@@ -22,4 +22,6 @@ public class FeedbackService {
 	public List<Feedback> getFeedback(){
 		return (List<Feedback>) feedBackDao.findAll();
 	}
+	
+	
 }
