@@ -45,7 +45,6 @@ public class FeedbackController {
 		
 		HttpSession session = req.getSession();
 		User user = (User) session.getAttribute("userSession");
-		System.err.println(user);
 	
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
