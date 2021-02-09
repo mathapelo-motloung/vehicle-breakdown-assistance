@@ -23,8 +23,8 @@
 <body>
 
 	<h2>Login</h2>
-
 	<hr>
+	
 	<form action="login.do" method="post" onsubmit="return validate(this);">
 		<table>
 			<tr>
@@ -41,7 +41,9 @@
 			</tr>
 			<tr>
 				 <td></td> 
-				<td><p> New user? <a href="/register/all">Register here</a></p></td>
+
+				<td><p> New user? <a href="/register">Register here</a></p></td>
+
 			</tr>
 		</table>
 
