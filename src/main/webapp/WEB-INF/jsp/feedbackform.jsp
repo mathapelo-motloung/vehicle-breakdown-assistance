@@ -27,22 +27,33 @@
 	<jsp:include page="nav.jsp"></jsp:include>
 	<br>
 
-	<form:form action="sendfeedback" method="post" modelAttribute="feedback" >
+	<form:form action="sendfeedback" method="post" modelAttribute="feedback" name ="feedbackForm" onsubmit="return fValidate();">
 		<table>
-			
 			<tr>
 				<td><label>Provide feed back below</label></td>
 			</tr>
 			<tr>
-				<td><textarea name="description" rows="4" cols="50">
-					
-				</textarea></td>
+				<td><textarea name="description"  id="description"rows="4" cols="50" ></textarea>
+				</td>
 			</tr>
 			<tr>
 				<td><input type ="submit" name="sendfeedback" value="submit"></td>
 			</tr>
 		</table>
 	</form:form>
-
+	
+	<script type = "text/javascript">
+  
+      function fValidate() {
+         
+    	  if(document.getElementById('description').value == '') {
+				document.feedbackForm.description.focus();
+				alert("Please enter description.");
+            	return false;
+            	console.log("working");
+		 }
+         return( true );
+     }       
+</script>
 </body>
 </html>
