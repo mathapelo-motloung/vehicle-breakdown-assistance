@@ -9,8 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.zensar.vehiclebreakdown.dao.UserDao;
 import com.zensar.vehiclebreakdown.model.User;
@@ -29,7 +27,7 @@ public class HomePageController {
 	public String getIndex() {
 		return "index";
 	}
-	
+
 	@GetMapping("/register")
 	public String getRegisterForm(Model model) {
 		User user = new User();
@@ -54,6 +52,11 @@ public class HomePageController {
 		return "searchlocationform";
 	}
 
+	@GetMapping("/logout")
+	public String getLogoutForm() {
+		return "logoutform";
+	}
+	
 	@GetMapping("/login")
 	public String getLoginForm() {
 		return "loginform";
@@ -71,7 +74,7 @@ public class HomePageController {
 				if(password.equals(userSession.getPassword())) {
 						session.setAttribute("userSession", userSession);
 						session.setAttribute("sessionName", username);
-						return "index";	
+						return "home";	
 				}else {
 					return "loginform";
 				}

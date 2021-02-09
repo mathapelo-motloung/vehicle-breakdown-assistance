@@ -8,12 +8,17 @@
 <title>Vehicle Breakdown Assistance</title>
 </head>
 <body>
-	<h3>VBA System</h3>
+	<h3>Home</h3>
 	<hr>
 	<jsp:include page="nav.jsp"></jsp:include>
-	<h3>Welcome to the Vehicle Breakdown Assistance System</h3>
-    
-  
+       	<c:choose>
+    <c:when test="${!username.isEmpty()}">
+        <h3 align="right">You're logged in as ${sessionName} </h3>
+    </c:when>
+   <c:when test="${username.isEmpty()}">
+        <h3 align="right">  </h3>
+    </c:when>
+	</c:choose>
 
 </body>
 </html>

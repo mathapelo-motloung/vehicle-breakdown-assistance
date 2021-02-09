@@ -1,5 +1,5 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-<table width="400">
+<table>
 	<tr>
 	<c:choose>
 	  	<c:when test="${userSession.getUsertype() == 'ROLE_ADMIN'}">
