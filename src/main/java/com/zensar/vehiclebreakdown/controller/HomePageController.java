@@ -52,8 +52,12 @@ public class HomePageController {
 	}
 
 	@GetMapping("/logout")
-	public String getLogoutForm() {
-		return "logoutform";
+	public String getLogoutForm(HttpServletRequest req) {
+		HttpSession session = req.getSession();
+	      if(session != null) {
+	          session.invalidate();
+	      }
+		return "index";
 	}
 	
 	@GetMapping("/login")
