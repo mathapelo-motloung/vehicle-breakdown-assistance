@@ -27,11 +27,10 @@
 	  	</c:when>
 	  	<c:when test="${userSession.getUsertype() == 'ROLE_USER'}">
 			<a class="w3-bar-item w3-button w3-mobile w3-hover-red" href="/searchlocation">Find Mechanic</a>
-			<a class="w3-bar-item w3-button w3-mobile w3-hover-red" href="/feedback">Send Feedback</a>
+			<a class="w3-bar-item w3-button w3-mobile w3-hover-red" href="/myrequest">My Request</a>
 			<a class="w3-bar-item w3-button w3-mobile w3-hover-red" href="/logout">Logout</a>
 	  	</c:when>
 	  	<c:when test="${userSession.getUsertype() == 'ROLE_MECHANIC'}">
-	    	<a class="w3-bar-item w3-button w3-mobile w3-hover-red" href="/feedback">Send Feedback</a>
 	    	<a class="w3-bar-item w3-button w3-mobile w3-hover-red" href="/filterrequest">View Requests</a>
 			<a class="w3-bar-item w3-button w3-mobile w3-hover-red" href="/logout">Logout</a>
 	  	</c:when>

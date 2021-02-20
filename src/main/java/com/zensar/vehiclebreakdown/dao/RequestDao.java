@@ -1,6 +1,9 @@
 package com.zensar.vehiclebreakdown.dao;
 
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -14,5 +17,7 @@ public interface RequestDao extends CrudRepository<Request, Integer> {
 
 	@Query(SELECT_BY_ID)
 	List<Request> findByRequest(@Param("mechanic_id") int mechanicId);
+	
+
 
 }

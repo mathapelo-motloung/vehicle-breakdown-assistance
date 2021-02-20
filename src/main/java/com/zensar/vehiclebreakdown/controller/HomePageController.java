@@ -77,6 +77,7 @@ public class HomePageController {
 				if(password.equals(userSession.getPassword())) {
 						session.setAttribute("userSession", userSession);
 						session.setAttribute("sessionName", username);
+						session.setMaxInactiveInterval(900);
 						return "home";	
 				}else {
 					return "loginform";

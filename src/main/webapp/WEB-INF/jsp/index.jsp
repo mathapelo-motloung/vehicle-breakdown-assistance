@@ -15,7 +15,7 @@
 </head>
 <body>
 
-		<nav>
+	<nav>
 		<jsp:include page="nav.jsp"></jsp:include>
 	</nav>
 	

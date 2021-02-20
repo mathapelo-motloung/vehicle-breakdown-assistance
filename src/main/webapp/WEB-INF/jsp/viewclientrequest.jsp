@@ -21,7 +21,7 @@ table, th, td {
 </head>
 <body>
 <jsp:include page="nav.jsp"></jsp:include>
-	<h2>View Request</h2>
+	<h2>My Request(s)</h2>
 	<hr>
 	<h3 align="right">You're logged in as ${sessionName} </h3>
 	
@@ -30,18 +30,12 @@ table, th, td {
 		<div>
 			<table>
 				<tr>
-					<td>Client Name</td>
-					<td>Contact No</td>
 					<td>Description</td>
 					<td>Date</td>
 					<td></td>
 				</tr>
-				<u:forEach items="${request}" var="r">
-				<u:forEach items="${r.getUsers()}" var="usr">
+				<u:forEach items="${clientRequest}" var="r">
 					<tr>
-						<td>${usr.getFname()}  ${usr.getLname()}</td>
-						<td>${usr.getCellno()}</td>
-				</u:forEach>
 						<td>${r.getDescription()}</td>
 						<td>${r.getDate()}</td>
 						<td><a href="/feedback?requestId=${r.getRequest_id()}">Send Feedback</a></td>

@@ -34,6 +34,9 @@
 				<td><label>Provide feed back below</label></td>
 			</tr>
 			<tr>
+			<td><input type="hidden" name="request_id" value="<%=request.getParameter("requestId")%>"></td>
+		</tr>
+			<tr>
 				<td><textarea name="description"  id="description"rows="4" cols="50" ></textarea>
 				</td>
 			</tr>
