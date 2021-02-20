@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -25,6 +26,8 @@ public class Feedback {
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
+
+	private String request_id;
 	
 	public Feedback() {
 		// TODO Auto-generated constructor stub
@@ -74,6 +77,14 @@ public class Feedback {
 	public String toString() {
 		return "Feedback [feeback_id=" + feeback_id + ", description=" + description + ", date=" + date + ", user="
 				+ user + "]";
+	}
+
+	public String getRequest_id() {
+		return request_id;
+	}
+
+	public void setRequest_id(String request_id) {
+		this.request_id = request_id;
 	}
 	
 	

@@ -22,6 +22,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -37,9 +39,11 @@ public class RequestController {
 
 	@Autowired
 	RequestService requestService;
+	
 	@Autowired
 	UserService userService;
 	
+	//get request form
 	@GetMapping("/makerequest")
 	public String sendRequests(){
 		return "requestform";
@@ -56,6 +60,7 @@ public class RequestController {
 		return "viewrequest";
 	}
 	
+	//get requests but mechanic id
 	@GetMapping("/filterrequest")
 	public String getMechanicReq(HttpServletRequest req) {
 		
@@ -68,6 +73,14 @@ public class RequestController {
 		return "viewrequest";
 	}
 	
+	
+	//Display request for user who made that request
+	@GetMapping("/myrequest")
+	public String getClientReq(HttpServletRequest req) {
+		return requestService.getClientReq(req);
+	}
+	
+	//create a new request
 	@PostMapping("/addRequest")
 	public ResponseEntity<String> createRequest(@Valid Request request, BindingResult bindingResult,HttpServletRequest req) {
 		 
