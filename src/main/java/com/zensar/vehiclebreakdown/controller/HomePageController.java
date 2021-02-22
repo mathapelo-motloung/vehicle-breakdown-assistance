@@ -52,8 +52,12 @@ public class HomePageController {
 	}
 
 	@GetMapping("/logout")
-	public String getLogoutForm() {
-		return "logoutform";
+	public String getLogoutForm(HttpServletRequest req) {
+		HttpSession session = req.getSession();
+	      if(session != null) {
+	          session.invalidate();
+	      }
+		return "index";
 	}
 	
 	@GetMapping("/login")
@@ -73,6 +77,7 @@ public class HomePageController {
 				if(password.equals(userSession.getPassword())) {
 						session.setAttribute("userSession", userSession);
 						session.setAttribute("sessionName", username);
+						session.setMaxInactiveInterval(900);
 						return "home";	
 				}else {
 					return "loginform";
