@@ -31,7 +31,7 @@
 	<form:form action="sendfeedback" method="post" modelAttribute="feedback" name ="feedbackForm" onsubmit="return fValidate();">
 		<table>
 			<tr>
-				<td><label>Provide feed back below</label></td>
+				<th><label>Provide feed back below</label></th>
 			</tr>
 			<tr>
 			<td><input type="hidden" name="request_id" value="<%=request.getParameter("requestId")%>"></td>
