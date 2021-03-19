@@ -28,13 +28,15 @@ table, th, td {
 	<br>
 	
 		<div>
+		
+			
 			<table>
 				<tr>
-					<td>Name</td>
-					<td>Surname</td>
-					<td>Type</td>
-					<td>Feedback Description</td>
-					<td>Date and Time</td>
+					<th>Name</th>
+					<th>Surname</th>
+					<th>Type</th>
+					<th>Feedback Description</th>
+					<th>Date and Time</th>
 				</tr>
 				<u:forEach items="${feedback}" var="f">
 					<tr>

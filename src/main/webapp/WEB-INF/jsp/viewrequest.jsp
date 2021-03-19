@@ -21,20 +21,23 @@ table, th, td {
 </head>
 <body>
 <jsp:include page="nav.jsp"></jsp:include>
+
 	<h2>View Request</h2>
 	<hr>
 	<h3 align="right">You're logged in as ${sessionName} </h3>
 	
 	<div style="margin-top: 25px;"></div>
-	<form action="filterrequest" method="post">
+	
 		<div>
 			<table>
 				<tr>
-					<td>Client Name</td>
-					<td>Contact No</td>
-					<td>Description</td>
-					<td>Date</td>
-					<td></td>
+					<th>Client Name</th>
+					<th>Contact No.</th>
+					<th>Description</th>
+					<th>Date</th>
+					<th>Status</th>
+					<th>Change Status</th>
+					<th></th>
 				</tr>
 				<u:forEach items="${request}" var="r">
 				<u:forEach items="${r.getUsers()}" var="usr">
@@ -44,11 +47,26 @@ table, th, td {
 				</u:forEach>
 						<td>${r.getDescription()}</td>
 						<td>${r.getDate()}</td>
+						<td >${r.getStatus()}</td>
+						<td>
+							<form action="reqstatus" method="post">
+							<input type="hidden" name="id" value="${r.getRequest_id()}">
+
+								<select id="status" name="status">
+								  	<option value="Open">Open</option>
+								  	<option value="Attending">Attending</option>
+								  	<option value="Rejected">Rejected</option>
+								  	<option value="Closed">Closed</option>
+								</select>
+								
+							<input type ="submit" name="requestStatus" value="Save" />
+							
+							</form>
+						</td>
 						<td><a href="/feedback?requestId=${r.getRequest_id()}">Send Feedback</a></td>
-					</tr>
+				
 				</u:forEach>
 			</table>
 		</div>
-	</form>
 </body>
 </html>

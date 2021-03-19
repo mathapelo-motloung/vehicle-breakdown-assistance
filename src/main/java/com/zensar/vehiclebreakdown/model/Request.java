@@ -25,6 +25,8 @@ public class Request {
 	private String description;
 	private String date;
 	private int mechanic_id;
+	@NotEmpty
+	private String status;
 
 	
 	
@@ -70,16 +72,27 @@ public class Request {
 	public void setMechanic_id(int mechanic_id) {
 		this.mechanic_id = mechanic_id;
 	}
+	
+	public String getStatus() {
+		return status;
+	}
 
-	public Request(@NotEmpty int request_id, @NotEmpty String description, @NotEmpty String date,
-			@NotEmpty int mechanic_id, List<User> users) {
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	
+	public Request(int request_id, @NotEmpty String description, String date, int mechanic_id, @NotEmpty String status,
+			List<User> users) {
 		super();
 		this.request_id = request_id;
 		this.description = description;
 		this.date = date;
 		this.mechanic_id = mechanic_id;
+		this.status = status;
 		this.users = users;
 	}
+
 	public Request() {
 		super();
 		// TODO Auto-generated constructor stub

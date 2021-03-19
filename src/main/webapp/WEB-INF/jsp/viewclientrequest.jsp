@@ -30,14 +30,16 @@ table, th, td {
 		<div>
 			<table>
 				<tr>
-					<td>Description</td>
-					<td>Date</td>
-					<td></td>
+					<th>Description</th>
+					<th>Date</th>
+					<th>Status</th>
+					<th></t>
 				</tr>
 				<u:forEach items="${clientRequest}" var="r">
 					<tr>
 						<td>${r.getDescription()}</td>
 						<td>${r.getDate()}</td>
+						<td>${r.getStatus()}</td>
 						<td><a href="/feedback?requestId=${r.getRequest_id()}">Send Feedback</a></td>
 					</tr>
 				</u:forEach>
