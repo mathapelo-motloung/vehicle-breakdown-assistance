@@ -12,25 +12,76 @@
 <title>Insert title here</title>
 
 <style>
-table, th, td {
 
-	padding: 10px;
-	border: 1px solid black;
-	border-collapse: collapse;
+
+#locs{
+font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width:100%;
 }
+
+#locs td, #locs th{
+border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#locs tr:nth-child(even){background-color: #f2f2f2;}
+
+#locs tr:hover {background-color: #ddd; }
+
+#locs th{
+ padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #ff3333;
+  color: white;
+}
+
+#tablesD{
+ padding: 20px;
+ margin:0 auto;
+}
+
+#searchD{
+padding: 20px;
+ margin:0 auto;
+ 
+}
+
+.container {
+  padding: 20px;
+  height:1000px;
+   width: 1200px;
+  resize: both;
+  margin:0 auto;
+  overflow: auto;
+   align-content: center;
+}
+
+#user{
+padding: 20px;
+ margin:0 auto;
+
+}
+
 </style>
 </head>
 
 <body>
 	
 <jsp:include page="nav.jsp"></jsp:include>
+<div id="user">
+		<h4 >You're logged in as ${sessionName}</h4>
+		</div>
+
+<div class="container">
 <h2>View Users</h2>  
 <hr>
-<h3 align="right">You're logged in as ${sessionName} </h3>
+
 
 <br>
 
-	 
+	 <div id = "searchD">
 	<form action="filteruser" method="post">
 		<div>
 			<tr>
@@ -47,12 +98,12 @@ table, th, td {
 			</tr>
 		</div>
 	</form>
-
+</div>
 	<div style="margin-top: 25px;"></div>
 
-	
+	<div id="tablesD">
 		<div>
-			<table>
+			<table id="locs">
 				<tr>
 					<th>user Id</th>
 					<th>Name</th>
@@ -97,6 +148,13 @@ table, th, td {
 				</u:forEach>
 			</table>
 		</div>
+		</div>
+	</div>
 	
+	<!-- FOOTER  -->
+	<footer class="w3-black w3-padding-xlarge w3-center">
+
+		<p>Vehicle Breakdown Assistance &copy; 2021</p>
+	</footer>
 </body>
 </html>
