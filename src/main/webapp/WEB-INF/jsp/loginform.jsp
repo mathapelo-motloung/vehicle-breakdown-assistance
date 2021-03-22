@@ -23,6 +23,7 @@ input[type=text], input[type=password] {
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
+  background: #f1f1f1;
 }
 
 button {
@@ -91,39 +92,16 @@ span.user {
 	
 	<div>
 	<form action="login.do" method="post" onsubmit="return validate(this);">
-	<!-- 
-		<table>
-			<tr>
-				<td><label>Username</label></td>
-				<td><input type ="text" name="username" ></td>
-			</tr>
-			<tr>
-				<td><label>Password</label></td>
-				<td><input type ="password" name="password" ></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td><input type ="submit" name="login" value="submit"></td>
-			</tr>
-			<tr>
-				 <td></td> 
-
-				<td><p> New user? <a href="/register">Register here</a></p></td>
-
-			</tr>
-			
-			
-		</table>
-		 -->
+	
 		<div class="container">
 		<h2>Login</h2>
 	<hr>
 		
 		<label><b>Username</b></label>
-		<input type ="text" placeholder="Enter Username" name="username" >
+		<input type ="text"  name="username" >
 		
 		<label><b>Password</b></label>
-		<input type ="password" placeholder="Enter Password" name="password" >
+		<input type ="password"  name="password" >
 		
 		<button type="submit" name="login" >Login</button>
 			</div>

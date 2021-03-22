@@ -89,66 +89,7 @@ a {
 <div>
 	<form:form action="adduser" method="post" modelAttribute="user"
 		name="registerForm" onsubmit="return validate()">
-		<!-- 
-		<table>   
-            <tr>
-				<td><form:label path="fname">Name</form:label></td>
-				<td><form:input path="fname" type ="text" name="fname" minlength="2"/></td>
-			<tr>
-				<td><form:label path="lname">Surname</form:label></td>
-				<td><form:input path="lname" type ="text" name="lname" minlength="2"/></td>
-			</tr>
-			<tr>
-				<td><form:label path="email">Email</form:label></td>
-				<td><form:input path="email" type ="email" name="email" /></td>
-			</tr>
-			<tr>
-				
-				<td><form:input path="status" type ="hidden" name="status" value= "NOT BLOCKED"/></td>
-			</tr>
-			
-			<tr>
-				<td><form:label path="cellno">Contact no.</form:label></td>
-				<td><form:input path="cellno" type ="text" name="cellno" id ="contactno"/></td>
-			</tr>
-			<tr>
-				<td><form:label path="usertype" for="roles">Choose a Role:</form:label></td>
-				
-				<td>
-					<form:select path="usertype" id="roles" name="usertype">
-					  	<form:option value="ROLE_USER">Client</form:option>
-					  	<form:option value="ROLE_MECHANIC">Mechanic</form:option>
-					</form:select>
-				</td>
-                <tr>
-				<td><form:label path="location">Location</form:label></td>
-				<td><form:select path="location" id="location" name="location">
-					  	<form:option value="Johannesburg">Johannesburg</form:option>
-					  	<form:option value="Pretoria">Pretoria</form:option>
-					  	<form:option value="Sandton">Sandton</form:option>
-					  	<form:option value="Midrand">Midrand</form:option>
-					  	<form:option value="Soweto">Soweto</form:option>
-					  	<form:option value="Vereeniging">Vereeniging</form:option>
-					</form:select></td>
-			</tr>
-			<tr>
-				<td><form:label path="username">Username</form:label></td>
-				<td><form:input path="username" type ="text" name="username" minlength="2"/></td>
-			</tr>
-			<tr>
-				<td><form:label path="password">Password</form:label></td>
-				<td><form:input path="password" type ="password" name="password" minlength="5"/></td>
-			</tr>
-			<tr>
-				<td></td>	
-				<td><input type ="submit" name="register" value="submit" /></td>
-			</tr>
-			<tr>
-				 <td></td> 
-				<td><p> Already have an account? <a href="/login">Login here</a></p></td>
-			</tr>
-            </table>
-            -->
+		
 
 		<div class="container">
 			<h2>Register</h2>
@@ -158,19 +99,19 @@ a {
 			<form:label path="fname">
 				<b>Name</b>
 			</form:label>
-			<form:input path="fname" placeholder="Enter Name" type="text"
+			<form:input path="fname" type="text"
 				name="fname" minlength="2" />
 
 			<form:label path="lname">
 				<b>Surname</b>
 			</form:label>
-			<form:input path="lname" placeholder="Enter Surname" type="text"
+			<form:input path="lname"  type="text"
 				name="lname" minlength="2" />
 
 			<form:label path="email">
 				<b>Email</b>
 			</form:label>
-			<form:input path="email" placeholder="Enter Email" type="email"
+			<form:input path="email"  type="email"
 				name="email" />
 			<br>
 			<br>
@@ -180,7 +121,7 @@ a {
 			<form:label path="cellno">
 				<b>Contact no.</b>
 			</form:label>
-			<form:input path="cellno" placeholder="Enter CellNo" type="text"
+			<form:input path="cellno"  type="text"
 				name="cellno" id="contactno" />
 
 			<form:label path="usertype" for="roles">
@@ -207,13 +148,13 @@ a {
 			<form:label path="username">
 				<b>Username</b>
 			</form:label>
-			<form:input path="username" placeholder="Enter Username" type="text"
+			<form:input path="username"  type="text"
 				name="username" minlength="2" />
 
 			<form:label path="password">
 				<b>Password</b>
 			</form:label>
-			<form:input path="password" placeholder="Enter Password"
+			<form:input path="password" 
 				type="password" name="password" minlength="5" />
 
 			<button type="submit" class="registerbtn" name="register">Register</button>
