@@ -34,7 +34,7 @@
 			<a class="w3-bar-item w3-button w3-mobile w3-hover-red" href="/viewuser">View User</a>
 			<a class="w3-bar-item w3-button w3-mobile w3-hover-red" href="/feedback/all">View Feedback</a>
 			<div class="w3-dropdown-hover w3-hide-small">
-    <button class="w3-button" title="Notifications"><i class='far fa-user-circle'></i>${sessionName} <i class="fa fa-caret-down"></i></button>     
+    <button class="w3-button" title="Notifications"><i class='fa fa-user-circle'></i> ${sessionName} <i class="fa fa-caret-down"></i></button>     
     <div class="w3-dropdown-content w3-card-4 w3-bar-block">
       <a href="/logout" class="w3-bar-item w3-button w3-mobile w3-hover-red">Logout</a>
     </div>
@@ -44,7 +44,7 @@
 			<a class="w3-bar-item w3-button w3-mobile w3-hover-red" href="/searchlocation">Find Mechanic</a>
 			<a class="w3-bar-item w3-button w3-mobile w3-hover-red" href="/myrequest">My Request</a>
 			<div class="w3-dropdown-hover w3-hide-small">
-    <button class="w3-button" title="Notifications"><i class='far fa-user-circle'></i>${sessionName} <i class="fa fa-caret-down"></i></button>     
+    <button class="w3-button" title="Notifications"><i class='fa fa-user-circle'></i>${sessionName} <i class="fa fa-caret-down"></i></button>     
     <div class="w3-dropdown-content w3-card-4 w3-bar-block">
       <a href="/logout" class="w3-bar-item w3-button w3-mobile w3-hover-red">Logout</a>
     </div>
@@ -54,7 +54,7 @@
 	  	<c:when test="${userSession.getUsertype() == 'ROLE_MECHANIC'}">
 	    	<a class="w3-bar-item w3-button w3-mobile w3-hover-red" href="/filterrequest">View Requests</a>
 			<div class="w3-dropdown-hover w3-hide-small">
-    <button class="w3-button" title="Notifications"><i class='far fa-user-circle'></i>${sessionName} <i class="fa fa-caret-down"></i></button>     
+    <button class="w3-button" title="Notifications"><i class='fa fa-user-circle'></i>${sessionName} <i class="fa fa-caret-down"></i></button>     
     <div class="w3-dropdown-content w3-card-4 w3-bar-block">
       <a href="/logout" class="w3-bar-item w3-button w3-mobile w3-hover-red">Logout</a>
     </div>

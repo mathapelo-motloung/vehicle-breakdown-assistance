@@ -119,8 +119,9 @@ padding: 20px;
 				</tr>
 
 				<u:forEach items="${user}" var="p">
+				<tr>
 					<form action="block" method="post">
-					<tr>	
+						
 						<td>${p.getUser_id()}<input type="hidden" name="id"
 							value="${p.getUser_id()}" /></td>
 						<td>${p.getFname()}<input type="hidden" name="fname"
@@ -143,8 +144,9 @@ padding: 20px;
 									value="disable" />	
 						</u:if>
 						</td>
-					</tr>
+					
 					</form>
+					</tr>
 				</u:forEach>
 			</table>
 		</div>

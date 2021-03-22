@@ -47,6 +47,7 @@ button:hover {
 div{
  padding: 20px;
  margin:0 auto;
+
 }
 
 .container {
