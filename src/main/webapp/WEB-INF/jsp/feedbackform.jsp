@@ -12,24 +12,74 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <style type="text/css">
-	table, th, td {
-	padding: 10px;
-	border: 1px solid black;
-	border-collapse: collapse;
+	#locs{
+font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width:100%;
+}
+
+#locs td, #locs th{
+border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#locs tr:nth-child(even){background-color: #f2f2f2;}
+
+#locs tr:hover {background-color: #ddd; }
+
+#locs th{
+ padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #ff3333;
+  color: white;
+}
+
+#tablesD{
+ padding: 20px;
+ margin:0 auto;
+}
+
+#searchD{
+padding: 20px;
+ margin:0 auto;
+ 
+}
+
+.container {
+  padding: 20px;
+  height:500px;
+   width: 1200px;
+  resize: both;
+  margin:0 auto;
+  overflow: auto;
+   align-content: center;
+}
+
+#user{
+padding: 20px;
+ margin:0 auto;
+
+}
+
 }
 </style>
 
 </head>
 <body>
 <jsp:include page="nav.jsp"></jsp:include>
+<div id="user">
+		<h4 >You're logged in as ${sessionName}</h4>
+		</div>
+<div class="container">
 	<h2>Feedback</h2>
 	<hr>
-	<h3 align="right">You're logged in as ${sessionName} </h3>
+	
 	
 	<br>
-
+<div id="tablesD">
 	<form:form action="sendfeedback" method="post" modelAttribute="feedback" name ="feedbackForm" onsubmit="return fValidate();">
-		<table>
+		<table id="locs">
 			<tr>
 				<th><label>Provide feed back below</label></th>
 			</tr>
@@ -37,7 +87,7 @@
 			<td><input type="hidden" name="request_id" value="<%=request.getParameter("requestId")%>"></td>
 		</tr>
 			<tr>
-				<td><textarea name="description"  id="description"rows="4" cols="50" ></textarea>
+				<td><textarea name="description"  id="description"rows="4" cols="135" ></textarea>
 				</td>
 			</tr>
 			<tr>
@@ -45,7 +95,8 @@
 			</tr>
 		</table>
 	</form:form>
-	
+	</div>
+	</div>
 	<script type = "text/javascript">
   
       function fValidate() {
@@ -59,5 +110,10 @@
          return( true );
      }       
 </script>
+<!-- FOOTER  -->
+	<footer class="w3-black w3-padding-xlarge w3-center">
+
+		<p>Vehicle Breakdown Assistance &copy; 2021</p>
+	</footer>
 </body>
 </html>
