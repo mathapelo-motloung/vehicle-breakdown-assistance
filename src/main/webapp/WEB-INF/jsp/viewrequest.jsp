@@ -43,7 +43,7 @@ border: 1px solid #ddd;
 
 .container {
   padding: 20px;
-  height:500px;
+  height:550px;
    width: 1200px;
   resize: both;
   margin:0 auto;
@@ -60,9 +60,9 @@ padding: 20px;
 </head>
 <body>
 <jsp:include page="nav.jsp"></jsp:include>
-<div id="user">
+<!-- <div id="user">
 		<h4 >You're logged in as ${sessionName}</h4>
-		</div>
+		</div> -->
 
 <div class="container">
 	<h2>View Request</h2>

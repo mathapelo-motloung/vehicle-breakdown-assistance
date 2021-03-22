@@ -70,9 +70,9 @@ padding: 20px;
 <body>
 	
 <jsp:include page="nav.jsp"></jsp:include>
-<div id="user">
+<!-- <div id="user">
 		<h4 >You're logged in as ${sessionName}</h4>
-		</div>
+		</div> -->
 
 <div class="container">
 <h2>View Users</h2>  
