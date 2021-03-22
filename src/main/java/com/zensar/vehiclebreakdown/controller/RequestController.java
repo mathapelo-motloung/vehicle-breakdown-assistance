@@ -45,8 +45,14 @@ public class RequestController {
 	
 	//get request form
 	@GetMapping("/makerequest")
-	public String sendRequests(){
-		return "requestform";
+	public String sendRequestsForm(){
+		return "requestform";	
+	}
+	
+	//get request form
+	@GetMapping("/requeststatus")
+	public String requestsStatusForm(){
+		return "requeststatus";
 		
 	}
 	
@@ -104,4 +110,10 @@ public class RequestController {
 			return ResponseEntity.ok("Request made successful.");		
 		}
 	}	
+	
+	@PostMapping("/reqstatus")
+	public ResponseEntity<String> requestStatus(@RequestParam(value="id",required=true) int id,@RequestParam(value="status",required=true) String status) {
+		requestService.requestStatus(id,status);
+		return ResponseEntity.ok("Status Changed.");	
+	}
 }

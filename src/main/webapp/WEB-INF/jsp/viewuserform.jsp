@@ -54,17 +54,17 @@ table, th, td {
 		<div>
 			<table>
 				<tr>
-					<td>user Id</td>
-					<td>Name</td>
-					<td>Surname</td>
-					<td>Email Address</td>
-					<td>User Type</td>
-					<td>Cell Number</td>
-					<td>Location</td>
-					<td>Username</td>
-					<td>Password</td>
-					<td>Status</td>
-					<td>Enable/Disable</td>
+					<th>user Id</th>
+					<th>Name</th>
+					<th>Surname</th>
+					<th>Email Address</th>
+					<th>User Type</th>
+					<th>Cell Number</th>
+					<th>Location</th>
+					<th>Username</th>
+					<th>Password</th>
+					<th>Status</th>
+					<th>Enable/Disable</th>
 				</tr>
 
 				<u:forEach items="${user}" var="p">

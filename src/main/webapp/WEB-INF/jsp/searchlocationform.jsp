@@ -57,17 +57,17 @@ table, tr, td, th {
 
 	<div style="margin-top: 25px;"></div>
 
-	<form form action="filtersearch" method="post">
+	<form action="filtersearch" method="post">
 		<div>
 			<table>
 				<tr>
-					<td>Name</td>
-					<td>Surname</td>
-					<td>Email Address</td>
-					<td>Cell Number</td>
-					<td>Location</td>
-					<td>Username</td>	
-					<td></td>	
+					<th>Name</th>
+					<th>Surname</th>
+					<th>Email Address</th>
+					<th>Cell Number</th>
+					<th>Location</th>
+					<th>Username</th>	
+					<th></th>	
 				</tr>
 				<u:forEach items="${user}" var="p">
 					<tr>
