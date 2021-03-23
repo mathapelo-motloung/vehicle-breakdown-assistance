@@ -44,6 +44,14 @@ hr {
 button:hover {
   opacity: 0.8;
 }
+
+#loginD{
+height:550px;
+margin:0 auto;
+
+}
+
+
 div{
  padding: 20px;
  margin:0 auto;
@@ -90,7 +98,7 @@ span.user {
 </head>
 <body>
 <jsp:include page="nav.jsp"></jsp:include>
-	
+	<div id="loginD">
 	<div>
 	<form action="login.do" method="post" onsubmit="return validate(this);">
 	
@@ -113,6 +121,7 @@ span.user {
 
 
 	</form>
+	</div>
 	</div>
 	
 	<!-- FOOTER  -->
