@@ -73,8 +73,7 @@ public class HomePageController {
 		
 		try {
 			User userSession = userDao.findByUsername(username);
-			User userStatus = userDao.findByStatus(password, username);
-			if (username.equals(userSession.getUsername()) && userStatus.getStatus().equalsIgnoreCase("NOT BLOCKED")) {
+			if (username.equals(userSession.getUsername()) && userSession.getStatus().equalsIgnoreCase("NOT BLOCKED")) {
 				if(password.equals(userSession.getPassword())) {
 						session.setAttribute("userSession", userSession);
 						session.setAttribute("sessionName", username);
