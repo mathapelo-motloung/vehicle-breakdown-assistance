@@ -70,10 +70,11 @@ public class HomePageController {
 			HttpServletRequest req) {
 		
 		HttpSession session=req.getSession();
-		 
+		
 		try {
 			User userSession = userDao.findByUsername(username);
-			if (username.equals(userSession.getUsername())) {
+			User userStatus = userDao.findByStatus(password, username);
+			if (username.equals(userSession.getUsername()) && userStatus.getStatus().equalsIgnoreCase("NOT BLOCKED")) {
 				if(password.equals(userSession.getPassword())) {
 						session.setAttribute("userSession", userSession);
 						session.setAttribute("sessionName", username);
