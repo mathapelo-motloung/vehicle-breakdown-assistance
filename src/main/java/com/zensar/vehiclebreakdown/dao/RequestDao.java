@@ -18,6 +18,8 @@ public interface RequestDao extends CrudRepository<Request, Integer> {
 	@Query(SELECT_BY_ID)
 	List<Request> findByRequest(@Param("mechanic_id") int mechanicId);
 	
+	Request findById(@Param("request_id") int requestId);
+	
 
 
 }
