@@ -96,18 +96,23 @@ padding: 20px;
 	<form action="filtersearch" method="post"
 		onsubmit="return validate(this);">
 <div>
-			Search <input list="locations" value= "Type location"name="location"> *
-			<button>Go</button>
 
-			<datalist id="location">
-				<u:forEach items="${user}" var="p">
-					<option value="${p.getLocation()}">
-				</u:forEach>
-			</datalist>
-		</div>
-		<div>
-			<input type="hidden" name="action" value="search">
+<tr>
+<td><label>Search Location</label></td>
+<td><select id="loaction" name="location">
+<option value="Johannesburg">Johannesburg</option>
+						<option value="Pretoria">Pretoria</option>
+						<option value="Sandton">Sandton</option>
+						<option value="Midrand">Midrand</option>
+						<option value="Soweto">Soweto</option>
+						<option value="Vereeniging">Vereeniging</option>
+				</select></td>
+</tr>
 
+			<tr>
+		
+			<td><input type="submit" name="filter" value="submit"></td>
+</tr>
 		</div>
 	</form>
 	</div>
