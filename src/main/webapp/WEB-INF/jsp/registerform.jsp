@@ -38,7 +38,7 @@ div{
 	align-content: center;
 }
 
-input[type=text], input[type=password] {
+input{
 	width: 100%;
 	padding: 15px;
 	margin: 5px 0 22px 0;
@@ -127,7 +127,7 @@ a {
 			<form:label path="usertype" for="roles">
 				<b>Choose a Role:</b>
 			</form:label>
-			<form:select path="usertype" id="roles" name="usertype">
+			<form:select path="usertype" id="roles" name="usertype" >
 				<form:option value="ROLE_USER">Client</form:option>
 				<form:option value="ROLE_MECHANIC">Mechanic</form:option>
 			</form:select>

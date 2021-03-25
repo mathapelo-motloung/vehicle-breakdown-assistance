@@ -47,5 +47,9 @@ public class UserService {
 	public List<User> getUserByLocRole(String location,String role){
 		return userDao.findByLocationRole(location, role);
 	}
+	
+	public User getStatus(String password, String username) {
+		return userDao.findByStatus(password, username);
+	}
 
 }
