@@ -24,6 +24,11 @@ public interface UserDao extends CrudRepository<User, Integer> {
 	
 	@Query(SELECT_BY_LOC_AND_ROLE)
 	List<User> findByLocationRole(@Param("location") String location, @Param("usertype") String usertype);
-
+	
+	String SELECT_BY_STATUS = "select u FROM users u " + " WHERE u.password =:password AND u.username =:username";
+	
+	@Query(SELECT_BY_STATUS)
+	User findByStatus(@Param("password") String password, @Param("username") String username);
+	
 }	
 
