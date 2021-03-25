@@ -56,6 +56,17 @@ padding: 20px;
  margin:0 auto;
 
 }
+
+input[type=submit] {
+  background-color:#7e9c88;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding:6px 8px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
 </style>
 </head>
 <body>
