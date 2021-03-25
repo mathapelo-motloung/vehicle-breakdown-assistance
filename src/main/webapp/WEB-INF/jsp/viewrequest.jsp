@@ -12,10 +12,8 @@
 <title>Insert title here</title>
 <style>
 a{
-	color:#b04202;
+color:#b04202;
 }
-
-
 #requestD{
 font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
@@ -63,11 +61,11 @@ padding: 20px;
 }
 
 input[type=submit] {
-  background-color:#7e9c88;
+  background-color:#f09684;
   border: none;
   border-radius: 5px;
   color: white;
-  padding:6px 8px;
+  padding:4px 8px;
   text-decoration: none;
   margin: 4px 2px;
   cursor: pointer;

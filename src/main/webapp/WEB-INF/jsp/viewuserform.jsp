@@ -137,11 +137,11 @@ padding: 20px;
 						<td>
 						<u:if test="${p.getStatus().equals('BLOCKED')}">
 								<input type="submit" name="status"
-									value="enable" />
+									value="Unblock" />
 							</u:if> 
 							<u:if test="${p.getStatus().equals('NOT BLOCKED')}">
 								<input type="submit" name="status"
-									value="disable" />	
+									value="Block" />	
 						</u:if>
 						</td>
 					
