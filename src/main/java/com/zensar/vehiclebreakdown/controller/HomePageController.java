@@ -21,7 +21,7 @@ public class HomePageController {
 	@Autowired
 	UserService userService;
 
-	@GetMapping("/home")
+	@GetMapping("/")
 	public String getIndex() {
 		return "index";
 	}
