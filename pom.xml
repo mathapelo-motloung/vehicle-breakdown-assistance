@@ -12,6 +12,7 @@
 	<artifactId>vehiclebreakdown</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>vehiclebreakdown</name>
+	<packaging>war</packaging>
 	<description>Vehicle Breakdown Assistance Project</description>
 	<properties>
 		<java.version>1.8</java.version>
