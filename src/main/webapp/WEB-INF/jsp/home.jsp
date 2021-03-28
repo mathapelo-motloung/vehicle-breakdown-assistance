@@ -11,7 +11,7 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 <link rel="stylesheet" href="css/style.css">
-<title>Vehicle Breakdown Assistance</title>
+<title>Home</title>
 </head>
 <body>
 	<jsp:include page="nav.jsp"></jsp:include>
